@@ -15,7 +15,7 @@
 
 ## Introduction
 
-V posledních několika letech se hodně rozmáhá technologie zvaná REST. Tato technologie byla popsána Royem Fieldingem už v roce 2000 v jeho disertační práci[1][#Fielding:2000]. Tato technologie je využívána především v oblasti webu, kde našla široké uplatnění. Samotná technologie se jmenuje REST, ale její konkrétní implementace je označována jako RESTful. Implementace se tedy může lišit (a v praxi se i liší), ale pokud jsou splněny základní principy této technologie, je možné takové API označit jako RESTful.
+V posledních několika letech se hodně rozmáhá technologie zvaná REST. Tato technologie byla popsána Royem Fieldingem už v roce 2000 v jeho disertační práci[[1](#Fielding2000)]. Tato technologie je využívána především v oblasti webu, kde našla široké uplatnění. Samotná technologie se jmenuje REST, ale její konkrétní implementace je označována jako RESTful. Implementace se tedy může lišit (a v praxi se i liší), ale pokud jsou splněny základní principy této technologie, je možné takové API označit jako RESTful.
 
 Jako každé API je i RESTful API jen komunikačním rozhraním nějakého systému nebo modulu. Toto rozhraní pak může využít programátor při integrování vlastního systému a systému, který RESTful API poskytuje. Takováto integrace je známa především v oblasti velkých společností, ve kterých spolu komunije celá řáda specifických systémů. V oblasti webu může být taková integrace ale mnohem mocnější. Vhodnou kombinací více RESTful API je poměrně jednoduché vytvořit novou službu, podobně jako stavíme klasický software pomocí knihoven. RESTful API ale často neposkytuje pouze nějakou funkčnost, ale také data.
 
@@ -33,4 +33,4 @@ Dále chci porovnat různé dnes existující nástroje, které umožňují test
 
 ## Bibliography
 
-[#Fielding:2000]: Roy Fielding. *Architectural Styles and the Design of Network-based Software Architectures*. 2000. (http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
+[1]<a name="Fielding2000"></a>: Roy Fielding. *Architectural Styles and the Design of Network-based Software Architectures*. 2000. (http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
