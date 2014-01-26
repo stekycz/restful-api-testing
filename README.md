@@ -6,7 +6,9 @@
 
 ## Description
 
-This is the text of master thesis at [FIT CTU](http://fit.cvut.cz/) in Prague written by [Martin Štekl](#author).
+This is the text of master thesis at [FIT CTU in Prague](http://fit.cvut.cz/) written by [Martin Štekl](#author).
+
+Final text will be completely in English however first notes are made in Czech for faster progress.
 
 Original requirements can be found as a [Gist](https://gist.github.com/stekycz/8482392).
 
@@ -20,5 +22,4 @@ Choose some of the proposed modifications and implement them. Propose implemente
 
 ## Author
 
-My name is Martin Štekl. Feel free to contact me on [e-mail](mailto:martin.stekl@gmail.com)
-or follow me on [Twitter](https://twitter.com/stekycz).
+My name is Martin Štekl. Feel free to contact me on [e-mail](mailto:martin.stekl@gmail.com) or follow me on [Twitter](https://twitter.com/stekycz).
