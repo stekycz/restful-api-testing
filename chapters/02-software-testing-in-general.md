@@ -38,4 +38,4 @@
 
 ### Testing process
 
-#### Continous integration
+#### Continuous integration
