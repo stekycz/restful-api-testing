@@ -1,1 +1,8 @@
 *.sublime*
+Makefile
+*.tex
+*.pdf
+*.cls
+*.bst
+*.bib
+DP_Stekl_Martin_2014*
