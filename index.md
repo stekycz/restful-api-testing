@@ -12,38 +12,38 @@
 
 1. [Introduction](#introduction)
 2. [Software testing in general](chapters/02-software-testing-in-general.md)
-	1. Testing methods
-		1. White-Box testing
-		2. Black-Box testing
-		3. Grey-Box testing
-	2. Testing levels
-		1. Unit testing
-		2. Integration testing
-		3. System testing
-		4. Acceptance testing
-	3. Testing types
-		1. Compatibility testing
-		2. Smoke and sanity testing
-		3. Regression testing
-		4. Acceptance testing
-		5. Destructive testing
-		6. Performance testing
-		7. Accessibility testing
-		8. Security testing
-	4. Testing process
-		1. Continous integration
+	1. [Testing methods](chapters/02-software-testing-in-general.md#testing-methods)
+		1. [White-Box testing](chapters/02-software-testing-in-general.md#white-box-testing)
+		2. [Black-Box testing](chapters/02-software-testing-in-general.md#black-box-testing)
+		3. [Grey-Box testing](chapters/02-software-testing-in-general.md#grey-box-testing)
+	2. [Testing levels](chapters/02-software-testing-in-general.md#testing-levels)
+		1. [Unit testing](chapters/02-software-testing-in-general.md#unit-testing)
+		2. [Integration testing](chapters/02-software-testing-in-general.md#integration-testing)
+		3. [System testing](chapters/02-software-testing-in-general.md#system-testing)
+		4. [Acceptance testing](chapters/02-software-testing-in-general.md#acceptance-testing)
+	3. [Testing types](chapters/02-software-testing-in-general.md#testing-types)
+		1. [Compatibility testing](chapters/02-software-testing-in-general.md#compatibility-testing)
+		2. [Smoke and sanity testing](chapters/02-software-testing-in-general.md#smoke-and-sanity-testing)
+		3. [Regression testing](chapters/02-software-testing-in-general.md#regression-testing)
+		4. [Acceptance testing](chapters/02-software-testing-in-general.md#acceptance-testing)
+		5. [Destructive testing](chapters/02-software-testing-in-general.md#destructive-testing)
+		6. [Performance testing](chapters/02-software-testing-in-general.md#performance-testing)
+		7. [Accessibility testing](chapters/02-software-testing-in-general.md#accessibility-testing)
+		8. [Security testing](chapters/02-software-testing-in-general.md#security-testing)
+	4. [Testing process](chapters/02-software-testing-in-general.md#testing-process)
+		1. [Continuous integration](chapters/02-software-testing-in-general.md#continuous-integration)
 3. [RESTful API description and testing tools](chapters/03-restful-api-description-and-testing-tools.md)
-	1. Specification of important parameters for comparison
-	2. Tools comparison
-		1. SOAP UI
-		2. REST assured
-		3. Swagger
-		4. frisby.js
-		5. RAML
-		6. Runscope Radar
-		7. Dredd — API Blueprint Testing Tool
-	3. Evaluation of compared tools
-	4. Differences RESTful API testing against to software testing in general
+	1. [Specification of important parameters for comparison](chapters/02-software-testing-in-general.md#specification-of-important-parameters-for-comparison)
+	2. [Tools comparison](chapters/02-software-testing-in-general.md#tools-comparison)
+		1. [SOAP UI](chapters/02-software-testing-in-general.md#soap-ui)
+		2. [REST assured](chapters/02-software-testing-in-general.md#rest-assured)
+		3. [Swagger](chapters/02-software-testing-in-general.md#swagger)
+		4. [frisby.js](chapters/02-software-testing-in-general.md#frisby-js)
+		5. [RAML](chapters/02-software-testing-in-general.md#raml)
+		6. [Runscope Radar](chapters/02-software-testing-in-general.md#runscope-radar)
+		7. [Dredd](chapters/02-software-testing-in-general.md#dredd)
+	3. [Evaluation of compared tools](chapters/02-software-testing-in-general.md#evaluation-of-compared-tools)
+	4. [Differences RESTful API testing against to software testing in general](chapters/02-software-testing-in-general.md#differences-restful-api-testing-against-to-software-testing-in-general)
 4. [Evaluation of API Blueprint and Dredd](chapters/04-evaluation-of-api-blueprint-and-dredd.md)
 5. [Implementation of improvements to Dredd](chapters/05-implementation-of-improvements-to-dredd.md)
 6. [Conclusion](#conclusion)

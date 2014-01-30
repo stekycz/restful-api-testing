@@ -28,7 +28,7 @@ http://raml.org/
 
 https://www.runscope.com/
 
-#### Dredd — API Blueprint Testing Tool
+#### Dredd
 
 https://github.com/apiaryio/dredd
 
