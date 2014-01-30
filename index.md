@@ -6,12 +6,12 @@
 
 ## Table of Content
 
-- [Introduction](#introduction)
-- [Software testing in general](chapters/software-testing-in-general.md)
-- [RESTful API description and testing tools](chapters/restful-api-description-and-testing-tools.md)
-- _more chapters will follow_
-- [Conclusion](#conclusion)
-- [Bibliography](#bibliography)
+1. [Introduction](#introduction)
+2. [Software testing in general](chapters/02-software-testing-in-general.md)
+3. [RESTful API description and testing tools](chapters/03-restful-api-description-and-testing-tools.md)
+4. _more chapters will follow_
+5. [Conclusion](#conclusion)
+6. [Bibliography](#bibliography)
 
 ## Introduction
 
