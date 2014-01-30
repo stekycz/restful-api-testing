@@ -2,11 +2,15 @@
 
 ## Abstract
 
-`@todo`
+```
+@todo This will be written at the end
+```
 
 ## Abstrakt
 
-`@todo`
+```
+@todo This will be written at the end
+```
 
 ## Table of Content
 
@@ -69,8 +73,14 @@ Dále chci porovnat různé dnes existující nástroje, které umožňují test
 
 ## Conclusion
 
-`@todo`
+```
+@todo This will be written at the end
+```
 
 ## Bibliography
 
 [1]<a name="Fielding2000"></a>: Roy Fielding. *Architectural Styles and the Design of Network-based Software Architectures*. 2000. (http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
+
+```
+@todo Find some articles or books about software testing and testing process
+```
