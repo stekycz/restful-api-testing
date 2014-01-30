@@ -2,16 +2,52 @@
 
 ## Abstract
 
+`@todo`
+
 ## Abstrakt
+
+`@todo`
 
 ## Table of Content
 
 1. [Introduction](#introduction)
 2. [Software testing in general](chapters/02-software-testing-in-general.md)
+	1. Testing methods
+		1. White-Box testing
+		2. Black-Box testing
+		3. Grey-Box testing
+	2. Testing levels
+		1. Unit testing
+		2. Integration testing
+		3. System testing
+		4. Acceptance testing
+	3. Testing types
+		1. Compatibility testing
+		2. Smoke and sanity testing
+		3. Regression testing
+		4. Acceptance testing
+		5. Destructive testing
+		6. Performance testing
+		7. Accessibility testing
+		8. Security testing
+	4. Testing process
+		1. Continous integration
 3. [RESTful API description and testing tools](chapters/03-restful-api-description-and-testing-tools.md)
-4. _more chapters will follow_
-5. [Conclusion](#conclusion)
-6. [Bibliography](#bibliography)
+	1. Specification of important parameters for comparison
+	2. Tools comparison
+		1. SOAP UI
+		2. REST assured
+		3. Swagger
+		4. frisby.js
+		5. RAML
+		6. Runscope Radar
+		7. Dredd — API Blueprint Testing Tool
+	3. Evaluation of compared tools
+	4. Differences RESTful API testing against to software testing in general
+4. [Evaluation of API Blueprint and Dredd](chapters/04-evaluation-of-api-blueprint-and-dredd.md)
+5. [Implementation of improvements to Dredd](chapters/05-implementation-of-improvements-to-dredd.md)
+6. [Conclusion](#conclusion)
+7. [Bibliography](#bibliography)
 
 ## Introduction
 
@@ -30,6 +66,8 @@ Protože se jedná o velmi rozdílný způsob vývoje aplikací než doposud, o�
 Dále chci porovnat různé dnes existující nástroje, které umožňují testovat RESTful API a odhalit tak jejich nedostatky či silné stránky. Na základě tohoto porovnání je pak možné zvolit vhodný testovací nátroj při implementaci vlastního RESTful API. V závěru práce chci pro jeden z porovnávaných nástorjů některé nedostatky odstranit vlastní implementací, abych tak uvedl některé svoje poznatky a závěry do praxe.
 
 ## Conclusion
+
+`@todo`
 
 ## Bibliography
 
