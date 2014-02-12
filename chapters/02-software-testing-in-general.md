@@ -110,4 +110,44 @@ Testování bezpečnosti je bezesporu důležité. V obecném pojetí se ale nej
 
 ### Testing process
 
+Testovací proces závisí na samotném vývojovém procesu. Stejně jako pro vývoj ale existuje více procesů pro testování. V obecném pojetí testů závisí na jejich úrovních a typech. Část testů může být prováděna automaticky, část jich bude prováděna manuálně testerem. V každém případě je potřeba si připravit plán testování a tím si rozvrhnout, co a jak bude testováno v jaké fázi vývoje. Za samotný proces testování včetně návrhu by měl být zodpovědný jeden z testerů.
+
+Kromě samotného plánu je také dobré zvolit vhodný přístup k testování. Můžeme zvolit klasický přístup, při kterém nejprve programujeme a teprve poté píšeme testy. Takový přístup je poměrně jednoduchý a testy můžeme navrhnout jako _white box_. Můžeme ale opomenout některé okrajové podmínky, především pokud testy nepíše tester ale vývojář.
+
+V posledních letech slyším často o tzv. TDD (test driven development). Ve stručnosti nám tato technika říká, že nejprve napíšeme testy podle našich požadavků a pak teprve doplníme implementaci. Jedná se o jednu z agilních technik. Vždy nejprve napíšeme jednoduchý test a teprve poté píšeme co nejméně implementace pro jeho splnění. Postupujeme tedy v malých iteracích. Tento přístup je ale ze svojí podstaty _black box_.
+
+Ať už ale testy fungují jakýmkoli způsobem, je důležité je také pouštět a ověřovat správnost napsané aplikace. Testy můžeme pouštět vždy ručně na lokálním stroji, ale v případě složitějších testů nám může chybět výkon nebo není možnost pokračovat v práci. Pro tyto účely je tedy vhodné spouštění testů automatizovat na nějakém externím stroji. V této práci se zabývám právě touto částí testovacího procesu zvanou _Continuous integration_.
+
+```
+@todo Create diagram of development process with highligted part of testing process
+```
+
+```
+@todo Create some diagrams of different testing processes
+```
+
 #### Continuous integration
+
+Jak už název napovídá, jedná se o pokračující, neustálý proces integrace. Integrací v tomto smyslu nemusí být nutně spolupráce všech systémových komponent. Cílem tohoto procesu je odhalování chyb už během vývoje aplikace a ne až po jejím dokončení. Každá aplikace, ať už kompilovaná nebo skriptovaná, desktopová nebo webová, každou je možné sestavit do stavu, kdy je možné ji jednoduše nainstalovat či nasadit na server. Protože proces sestavení bývá komplikovaný a pro průběžnou kontrolu tedy časově náročný, je pro tyto účely využit proces Continuous integration.
+
+Tento proces má několik požadavků a skládá se z několika kroků. Největším požadavkem je využití společného repozitáře pro verzování kódu (např. SVN, GIT). Tento požadavek souvisí se samotnými kroky tohoto procesu. Dalším požadavkem je tzv. _build_ nebo _integration_ server, který je určen k sestavování aplikace. Mezi další požadavky patří například schopnost vývojového týmu udržovat tento proces, aktualizovat potřebné konfigurace a vyhodnocovat výstupy jednotlivých sestavení.
+
+Prvním krokem tohoto procesu je získání aktuální verze aplikace z verzovacího systému a načtení jeho závislostí. Jaký kôd se bude získávat záleží na tom, jak často a za jakých podmínek se sestavování spouští. Tyto možnosti rozeberu dále.
+
+Druhým (volitelným) krokem je kompilace aplikace v závislosti na použité platformě. V případě skriptovacích jazyků může být tento krok vynechán. Pokud v tomto kroku nastane chyba, dané sestavení končí chybou.
+
+Následuje krok testování, který je dle mého názoru nejdůležitější. Tento krok by měl být povinný pro všechny aplikace nezávisle na použité platformě a na typu aplikace. V této fázi by měly proběhnout všechny automatické testy, které k aplikaci existují. Pokud jediný test neprojde, sestavení končí chybou.
+
+Pokud projdou všechny testy, může v případě webové (či jiné serverové) aplikace následovat krok automatického nasazení na testovací server. Teoreticky je možné v tuto chvíli vytvořit automaticky novou verzi produktu a uveřejnit aktualizaci. Osobně si ale myslím, že nové verze by měly být vydávány manuálně s kontrolou a ne zcela automaticky.
+
+```
+@todo Create diagram of continuous integration process
+```
+
+Celý tento proces se může hodně lišit projekt od projektu. Velkým rozdílem pak může být spouštění tohoto procesu. Pro velké aplikace a dlouhé sestavení je vhodné zvolit periodické sestavení například přes noc. Pokud je sestavení rychlé (řádově jednotky minut), je možné spustit sestavení pro každý nový commit ve verzovacím systému. V případě používání větví je možné rohodovat, které větve budou testované a které ne. V každém případě musí být proces spuštěn při mergnutí změn do hlavní větvě vývoje.
+
+Tento proces ovšem nemusí být jen jeden pro daný projekt. Pro vývojové větve můžeme chtít použít jeho zjednodušenou variantu (např. spuštění jen některých testů). To se může hodit při vývoji velkého projektu, jehož sestavení trvá desítky minut. Spuštění zjednodušeného procesu nad novou větví může pomoci rychle odhalit základní chyby a důkladné testy budou provedeny až ve složitějším procesu.
+
+Jak je vidět, při použití této techniky můžeme nastavit procesy téměř libovolně pro každý projekt. Můžeme si nastavit více dílčích procesů pro průběžné a rychlé buildy, periodicky spouštět dlouhotrvající, ale princip zůstává stejný.
+
+Existuje celá řada nástrojů pro zavedení tohoto procesu a dále existuje mnoho nástrojů pro testování software. Málo těchto nástrojů se ale zaměřuje na testování RESTful APIs. V následující kapitole se proto podíváme na některé nástroje sloužící k testování nebo popisu RESTful APIs.
