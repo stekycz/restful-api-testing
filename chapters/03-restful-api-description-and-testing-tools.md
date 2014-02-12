@@ -16,6 +16,10 @@ https://github.com/jayway/rest-assured
 
 https://github.com/wordnik/swagger-js
 
+#### Postman
+
+http://www.getpostman.com/
+
 #### frisby.js
 
 http://frisbyjs.com/
