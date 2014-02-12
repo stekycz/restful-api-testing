@@ -72,21 +72,41 @@ Tato úroveň testování je v podstatě stejná jako systémové testování, a
 
 ### Testing types
 
+Posledním způsobem dělení testů, kterým se zde zabývám, jsou typy testů. Osobně to vidím spíše jako obecný účel konkrétního testu. V mnoha ohledech se totiž nejedná o to, jak test napsat, jakou funkčnost testuje nebo jak moc důkladě testuje daný kód. Těchto typů existuje celá řada, zde se ale budu věnovat jen těm, které považuji za nejlépe využitelné při testování RESTful API. Účel jednotlivých typů bude nejlépe vidět z jejich popisů a z příkladů. Narozdíl od předchozích skupin, jednotlivé typy lze vzájemně kombinovat, protože jeden test může sloužit více účelům (například regresní a destrukční).
+
 #### Compatibility testing
+
+Testování kompatibility systému je v podstatě integrační test na úrovni integrace běhového prostředí a naší aplikace. Tento typ testů je důležitý především při aktualizaci systému, na kterém naše aplikace běží. V případě dektopových programů nebo knihoven je pak cílem otestovat, na kterých verzích běhového prostředí naše aplikace funguje.
+
+Test kompatibility si lze představit poměrně jednoduše. Máme napsané testy pro současnou verzi běhového prostředí, ale plánujeme aktualizaci tohoto prostředí. Není tedy nic jednoduššího, než spustit námi napsané testy v novém prostředí. Tím však můžeme zjistit nejtriviálnější chyby v kompatibilitě. Mnohdy kompatibilita závisí na dalších částech celého systému, které nejsou pokryty automatickými testy a v takovém případě je potřeba navrhnout testování kompatibility na jiné úrovni. Pro základní otestování tedy může posloužit i systematické a jednoduché "proklikání" aplikace, přestože se nejedná o sofistikovaný způsob testování.
 
 #### Smoke and sanity testing
 
+Sanity testy jsou jednoduché a rychlé testy, které ověří základní správnou funkčnost. Často se bude jednat o _unit tests_, ale mohou to být i jednoduché testy systémové. Cílem je zjistit, zda není rozbitá základní logika a zda funguje správně. Tyto testy neřeší okrajové případy, které by testování zpomalily. Příkladem může být testování prostého sčítání celých čísel. Pro sanity testování je potřeba zjistit, zda výsledek součtu je očekávaná hodnota. Pokud bychom chtěli testovat důkladně, bylo by potřeba navíc testovat minimálně přetečení hodnoty `integer`.
+
+Smoke testy jsou v jistém smyslu velice podobné. Jsou rychlé a testují správnou funkčnost. Rozdíl je ale v tom, že netestují povrchně velkou část aplikace, ale zaměřují se na ty nejpodstatnější části, které otestují i na chybové stavy. Pokud bychom tedy programovali vlastní kalkulačku, smoke testy by testovaly jen a pouze samotné výpočetní jádro. Sanity testy by naopak testovaly i jiné části kalkulačky na správnou funkčnost (např. výpis výsledku na displej), ale výpočetní jádro by netestovali na chybné vstupy.
+
+Oba tyto typy se v mnohém doplňují a z jejich podstaty bych je nejvíce využil právě v _unit tests_, v menší míře pak na dalších úrovních.
+
 #### Regression testing
 
-#### Acceptance testing
+Obecně by mělo platit, že při opravě chyby napíšeme test, který před opravou neprojde a po opravě ano. Napsáním testu si totiž zajistíme, že se stejná chyba nevyskytne znovu, protože při jejím výskytu test neprojde. Takovému testu se říká regresní. Často se jedná o chybu viditelnou na jednom místě systému, která vznikla zásahem do kódu, který zdánlivě tuto část aplikace neovlivňuje. Nejčastě se tedy tento typ testů objevuje jako integrační test, případně jako test systémový.
+
+Cílem těchto testů není kontrola správnosti kódu, ale odhalování možných chyb systému. Typickým regresním testem pro naši kalkulačku by mohlo být dělení nulou. Protože nulou dělit nelze, očekáváme, že daná část kódu skončí chybou. Pokud by kód nefungoval dle očekávání, chyba nenastane a test nesmí projít. Může se ale jednat i o test kontrolující správné chování, který neprojde při chybném výsledku.
 
 #### Destructive testing
 
+Destructive tests slouží pro důkladné testování okrajových případů a podmínek. Snahou těchto testů je zapříčinit chybu. Samozřejmě ale test projde, když chyba nenastane. Typickým příkladem destručního testu může být zadání hodnoty jiného datového typu, prázdné hodnoty nebo jen hodnoty v neznámém formátu. V případě kalkulačky bychom například testovali počítání s hodně velkými nebo malými čísly. Za předpokladu, že jsou tyto testy navrženy dobře, bychom při jejich úspěšném dokončení měli mít jistotu, že aplikace bude fungovat i pokud nastanou okrajové nebo málo pravděpodobné situace.
+
 #### Performance testing
 
-#### Accessibility testing
+Testování výkonu je pro většinu aplikací velmi důležité. Výkon má totiž velký dopad na to, jak dobře se naše aplikace bude používat uživateli. Výkon je z velké části závislý nejen na kódu naší aplikace, ale může záviset i na výkonu stroje, na kterém běží nebo na infrastruktuře celého systému. Testování výkonu tedy nelze měřit jednoduše podle času, ale je potřeba si stanovit testovací podmínky a pro ně vhodné výkonostní limity. V případě testování výkonu webové aplikace musíme určit, na jak výkoném stroji poběží testovaná aplikace a testovaným kritériem bude počet obsloužených požadavků za jednotku času. Může se jednat i o čas, za který obslouží předem známý počet požadavků.
+
+Z mého popisu se může zdát, že se tyto testy provádí jen v rámci systémových nebo akceptačních testů. Výkon ale můžeme měřit i v rámci _unit tests_ nebo _integration tests_. Například v kalkulačce je pro nás nejdůležité částí komponenta výpočetního jádra a tedy můžeme testovat samostatně výkon tohoto jádra nezávisle na zbytku aplikace. Pokud tedy budou splněny testy pro výpočetní jádro, ale testy celé aplikace selžou, je zde velká pravděpodobnost, že chyba omezující výkon nebude ve výpočetním jádru. Mohou nám tedy nejen ostetovat výkon, ale i napovědět při případném odhalování chyb či nedostatků.
 
 #### Security testing
+
+Testování bezpečnosti je bezesporu důležité. V obecném pojetí se ale nejedná jen o přihlašování a odhlašování uživatelů, ale také o zabezpečení přístupu do částí systému nebo k datům, dostupnost těchto dat a v nespolední řadě jejich integrita. Značnou část kritických případů může být obtížné simulovat a možná proto jsem se doposud setkal s testování především autentifikace a autorizace. V tomto ohledu se tedy jedná o testy integrační a především systémové.
 
 ### Testing process
 
