@@ -49,7 +49,7 @@
 	3. [Evaluation of compared tools](chapters/03-restful-api-description-and-testing-tools.md#evaluation-of-compared-tools)
 	4. [Differences RESTful API testing against to software testing in general](chapters/03-restful-api-description-and-testing-tools.md#differences-restful-api-testing-against-to-software-testing-in-general)
 4. [Evaluation of API Blueprint and Dredd](chapters/04-evaluation-of-api-blueprint-and-dredd.md)
-5. [Implementation of improvements to Dredd](chapters/05-implementation-of-improvements-to-dredd.md)
+5. [Implementation of scenario testing](chapters/05-implementation-of-scenario-testing.md)
 6. [Conclusion](chapters/06-conclusion.md)
 7. [Bibliography](#bibliography)
 
