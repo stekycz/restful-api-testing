@@ -34,11 +34,11 @@ How I already wrote it looks as corporate solution for me. It can do many things
 
 #### REST assured
 
-https://github.com/jayway/rest-assured
+https://code.google.com/p/rest-assured
 
 #### Swagger
 
-https://github.com/wordnik/swagger-js
+https://github.com/wordnik/swagger-spec
 
 #### Postman
 
