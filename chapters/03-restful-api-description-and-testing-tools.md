@@ -22,7 +22,15 @@ I wanted to consider speed of testing using specific testing tool however they a
 
 #### SOAP UI
 
-http://www.soapui.org/
+The official web site for this project can be found on www.soapui.org. Many interesting informations related to API testing is there. My first opinion is that these project is targeting corporate companies. I wanted to try this item in use but their trial version requires registraion which I do not like. My opinions on following lines are based on documentation and video on the internet.
+
+The documentation is exhaustive and contains many screenshots. It looks you are able to configure everything from graphical user interface. It is simple and it is possible to configure many technival parameters. However the UI contains too many buttons and block for me so I am a little bit confused. I think it can be useful for someone who needs GUI to configure tests and who do it every day.
+
+You can define many parameters for each request/response pair. Based on tutorial it is very simple do define headers, body and response status code. It also allows you to define different allowed content types and it can be useful. It is relatively simple to define assertions for content, count or existence of some value in body or header. It also allows more complex assertions using regular expresions or scripting. You can define testing endpoint in project settings and it is used for all tests. However definition of more complicated tasks (eg. preparing of the endpoint or its database) before testing is more complicated. I did not fully undestand the possibility of modularization in SOAP UI however there should a way to configure some parameters using GUI. More complicated tasks must be done using some scripts binded to tests.
+
+Their documentation says it is compatible with jUnit somehow. Based on it I think it should be able to work correctly with many CI solutions. There is also some way to configure running from command line instead of basic button in GUI. It has many parameters and you have to install whole SOAP UI on your CI server which would probably need some GUI too.
+
+How I already wrote it looks as corporate solution for me. It can do many things, it has many configuration options and it has relatively easy GUI for clicking all tests. I assume (by name of the project) it started as testing tool for SOAP APIs which has different philosofy. I think it is a good solution for teams which has SOAP API and REST API too. Howeever I do not want to use it for simple project with REST API only because it is to heavy for simple purpose.
 
 #### REST assured
 
