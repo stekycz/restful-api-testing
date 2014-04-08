@@ -101,6 +101,8 @@ Concept of models is to remove duplicities in examples. You can specify body of 
 
 ### Dredd testing process
 
+The most important thing about Dredd is that it is not tool for testing API but for testing API Blueprint. Talking in testing terminology it is a system testing tool, not intergration testing tool. It was confusing for me at first time but after discussion with team from Apiary it becames clear to me. This is really important information because it changes meaning of testing using Dredd. I will describe Dredd in my new point of view related to differencies with previous confusing understanding.
+
 #### Configuration
 
 #### Test running
