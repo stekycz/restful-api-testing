@@ -12,7 +12,7 @@ The most important structures are resources and models in my opinion and I will 
 
 Resources are usually designed in logical groups. As you probably know each resource could allow more methods which are called an action in terminology of API Blueprint. Resource groups, resources and actions are basic structures of API Blueprint document.
 
-```markdown
+```
 # Group
 
 ## Resource [/posts/{id}]
@@ -24,7 +24,7 @@ Resources are usually designed in logical groups. As you probably know each reso
 
 Each resource could allow same parameters for all its actions. All these parameters (it means headers and models too) can be defined for whole resource so you do not need to repeat them for each action. However you can specify these parameters for each action if there are some special parameter for specific action.
 
-```markdown
+```
 # Group
 
 ## Resource [/posts/{id}]
@@ -44,7 +44,7 @@ Each resource could allow same parameters for all its actions. All these paramet
 
 Every action consists of a request and its response. I highly recomend to specify at least one request and response per action because it is an example in general. You can also specify more requests and responses for each action however you should create a name for other then default request/response pair. I think this is very important to show differencies which depends on the request.
 
-```markdown
+```
 # Group
 
 ## Resource [/posts/{id}]
@@ -71,7 +71,7 @@ You can specify a lot of your error responses, response content type dependency 
 
 Concept of models is to remove duplicities in examples. You can specify body of the response only once and use it for multiple examples for the resource. It is useful if model of response is the same for `POST` action and for `GET` action. You can also specify more models for different content types.
 
-```markdown
+```
 # Group
 
 ## Resource [/posts/{id}]
