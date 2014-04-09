@@ -22,6 +22,8 @@ I wanted to consider speed of testing using specific testing tool however they a
 
 #### SOAP UI
 
+http://www.soapui.org/
+
 The official web site for this project can be found on www.soapui.org. Many interesting informations related to API testing is there. My first opinion is that these project is targeting corporate companies. I wanted to try this item in use but their trial version requires registraion which I do not like. My opinions on following lines are based on documentation and video on the internet.
 
 The documentation is exhaustive and contains many screenshots. It looks you are able to configure everything from graphical user interface. It is simple and it is possible to configure many technival parameters. However the UI contains too many buttons and block for me so I am a little bit confused. I think it can be useful for someone who needs GUI to configure tests and who do it every day.
@@ -32,9 +34,19 @@ Their documentation says it is compatible with jUnit somehow. Based on it I thin
 
 How I already wrote it looks as corporate solution for me. It can do many things, it has many configuration options and it has relatively easy GUI for clicking all tests. I assume (by name of the project) it started as testing tool for SOAP APIs which has different philosofy. I think it is a good solution for teams which has SOAP API and REST API too. Howeever I do not want to use it for simple project with REST API only because it is to heavy for simple purpose.
 
-#### REST assured
+#### REST-assured
 
 https://code.google.com/p/rest-assured
+
+Most of information about this tool can be found in its repository and wiki on Google Code. REST-assured is written in Java and the simpliest usage would be in jUnit. It supports many HTTP specific methods for validation which can be useful. However I see this tool as corporate tool as well. I know Java is faster then script languages but in RESTful API testing the test will waiting for response most of time. I do not know why to use it for simple projects which are not written in Java.
+
+It can ba hard to write some tests if you do not know Java but it is relatively easy to learn. There is not way to describe API in other way then writing tests assertions. It is kind of uncomfortable if you have no possibility to generate API description from tests or you can not use API description for tests simplification. I can not say it is hard to write simple tests for your API but it requres Java and probably some other related libraries. However if you write some test then it looks like you write general english sentence and it is valuable for me.
+
+You can assert all basic parameters for request or response using this tool. It also provides some methods specific for cookies. It also supports multi-value headers and cookies which could be useful for more complicated APIs. I really appreciate it can assert value from response message body if it is JSON. It really helps because you do not need to parse response JSON to some structure by yourself because it does REST-assure for you. If you do not want to assert exact value you can use JSON schema validation. I also appreciate definition of base URI and port of the endpoint. It can be used for dynamic definition of endpoint for each test if you run tests in parallel. However I did not test how it works exactly. However it is still only REST assertion tool so you must use another testing tool for running or you can create a simple program by your own.
+
+It should be compatible with jUnit very well because it is mentioned [in documentation](https://code.google.com/p/rest-assured/wiki/GettingStarted). I do not know about some other testing tool for Java so I assume it is enoght to support jUnit. I also assume it is compatible with CI solutions with which jUnit is compatible by itself.
+
+REST-assured is very good testing tool for RESTful APIs which supports many assertions and prcesses around it. I would use it on project where Java is used only. I think it is not comfortable to write tests in Java using Ruby, Python, Node.js or PHP for writing your application. It also does not support description of API so you have to create combination with another tool or write description of API in different place. 
 
 #### Swagger
 
