@@ -56,9 +56,25 @@ https://github.com/wordnik/swagger-spec
 
 http://www.getpostman.com/
 
+Postman is a browser extension which allows you to define HTTP requests and browse its responses. It is basic version of this tool. You can pay for premium usage which allows you to write some expectations to response and so create tests.
+
+User interface is very simple and modern. Definition of requests and response is similar to SOAP UI but this tool support RESTful services only. However it is simple to click and add header or parameter to request. It also support user friendly definition of authentification so you do not have to think about hashing algorithms. You can just write important parameters and hashing and setting of headers will be done by Postman.
+
+Postman supports almost all general HTTP methods and authentications. Definition of URL parameters is also very simple - it is definition of key and its value. Url encoding is done automaticaly. Interesting thing is you can define different environments for sending requests. It is useful when you want to run the same request on your testing server and on your localhost. Postman also allows to group requests to collections which can be run by one click. It is very simple to test new feature in API by your own.
+
+On the other hand writing assertions is a little bit harder. You will need JavaScript to write simple assertions. It is so simple that it can be done by almost everyone. It also allows to assert response time to be fast enough. It can be uselful for basic performance testing. After all you can run your collections of tests using defined environments. However I see a problem here.
+
+You still must click to button to run tests and check by your eyes if every test passes. I have not found any way how to run these tests on some CI server. It is the reason why I do not use it for this purpose. I can recomend it if you want to test simple API without any CI server and if you are one or two developers. For projects of so size it is a very good and simple solution.
+
 #### frisby.js
 
 http://frisbyjs.com/
+
+Frisby is project written in JavaScript to run using Node.js. It is build on top of Jasmine testing framework and I see it as very similar tool as REST-assured. It is easier to use it if you already know Jasmine. If you do not usage is still very simple.
+
+It does not describe API. It is only testing tool. However it supports many interresting assertions. It supports exact expectations and you can also define so called "contains" expectatins. For example if you want to assert only part of some header you do not have to write any regular expresion but there is an expectation method prepared for you. You can also define your own assertions using anonymous functions and assertions in Jasmine. All assertions can be found in offical documentation. Definition of expectations is simple and powerful but definition of request is very poor. You can define only URL with all URL parameters in the string, parameters and sending data. I did not found any way how to specify request headers and so how to define some authetification.
+
+Its integration with some CI server depends on Jasmine. However I assume there should not be any problem because it is a popular framework for testing. I think it is a good tool for testing simple API without authentication and special request specific headers.
 
 #### RAML
 
