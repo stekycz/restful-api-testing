@@ -80,6 +80,14 @@ Its integration with some CI server depends on Jasmine. However I assume there s
 
 http://raml.org/
 
+RAML is and acronym RESTful API modeling language. SO it is only a description tool for our purpose. It is based on relatively popular syntax YAML used often in Ruby projects.
+
+It supports hierarchy of resources by its own structure, definition of parameters and headers and it also supports so called traits. Traits are supposed to use for common parameters on many resources. It can be paging for example. Resource path can be parameterized what can be useful for generating of request URI. However it supports only 4 basic HTTP methods - GET, PUT, POST and DELETE. They are basics but I do not see any reason not to support methods like HEAD, PATCH or OPTIONS.
+
+Some related project exists to support RAML in development tools. There exists plugin for Sublime Text editor, Java and JavaScript parsers and I was interested by plugin for SOAP UI. If I understand it well it will create some templates only. However it is very useful if you want to use SOAP UI.
+
+How you can see this modeling language can be used by some development tools and you can create your own to support RAML. Howeever wehen I want to create tests for my API I do not want to write my own support for some modeling language which is in my opininon too verbose.
+
 #### Runscope Radar
 
 https://www.runscope.com/
