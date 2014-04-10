@@ -86,7 +86,13 @@ However it does not support testing of private APIs. If requires public access t
 
 #### Dredd
 
-https://github.com/apiaryio/dredd
+The last tool I have choosed i Dredd by Apiary. It tests API by given API Blueprint file which is a special syntax for description of RESTful API. You can describe same amount of parameters like using RAML and add something more. There are some differencies but it is not important now. Its syntax is based on Markdown so it is easy to read and write.
+
+It allows yout to define many resources, actions and rtequests with responses. You can also define models which can be used in many actions, requests and responses. There is a simple way to define parameters for every resource, action or request. Each parameter can have its data type, default value, example value, description and flag if it is required or optional. It is simple to write description of API if you are familiar with Markdown syntax.
+
+How I already wrote Dredd is tool for testing API Blueprint. That is the most important thing because it tests the contract only. You can not define any scenario it just validates requests, sends requests, receives response and validates response. There is not state between two requests. However it supports definition of testing endpoint by CLI option. There is also some way to define before and after hooks but that is new feature which I did not test yet.
+
+This tool is very easy to use if you already have definition of your API written in API Blueprint. However it tests it in very simple way and if you have more complicated API using authentication you can meet some problems.
 
 ### Tools comparison
 
