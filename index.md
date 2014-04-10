@@ -65,12 +65,12 @@
 
 ## Bibliography
 
-[1]<a name="Fielding2000"></a>: Roy Fielding. *Architectural Styles and the Design of Network-based Software Architectures*. 2000. (http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
-[2]<a name="APIBlueprintSpecification"></a>: *API Blueprint Language Specification*. (https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md)
-[3]<a name="JSONSchema"></a>: *JSON Schema*. (http://json-schema.org/)
-[4]<a name="Trello"></a>: *Trello*. (https://trello.com/)
-[5]<a name="GitHub"></a>: *GitHub*. (https://github.com/)
-[6]<a name="Cucumber"></a>: *Cucumber*. (https://github.com/cucumber/cucumber-js)
+- [1]<a name="Fielding2000"></a>: Roy Fielding. *Architectural Styles and the Design of Network-based Software Architectures*. 2000. (http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
+- [2]<a name="APIBlueprintSpecification"></a>: *API Blueprint Language Specification*. (https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md)
+- [3]<a name="JSONSchema"></a>: *JSON Schema*. (http://json-schema.org/)
+- [4]<a name="Trello"></a>: *Trello*. (https://trello.com/)
+- [5]<a name="GitHub"></a>: *GitHub*. (https://github.com/)
+- [6]<a name="Cucumber"></a>: *Cucumber*. (https://github.com/cucumber/cucumber-js)
 
 ```
 @todo Find some articles or books about software testing and testing process
