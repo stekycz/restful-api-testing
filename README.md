@@ -16,6 +16,8 @@ Final text will be completely in English however first notes are made in Czech f
 
 Original requirements can be found as a [Gist](https://gist.github.com/stekycz/8482392).
 
+Project related to this text can be found in [separate repository](https://github.com/stekycz/cucumber-4-api-blueprint).
+
 ## Requirements
 
 Study the basics of testing, different methods, levels and types of testing, processes related to software testing and describe the strengths and weaknesses of various methods, levels and types of tests. Find and compare different tools that focus on testing RESTful API in the context of continuous integration or the description of the RESTful API. Based on these findings describe the differences and similarities in methods of testing code itself for regular SW and methods for testing RESTful API.
