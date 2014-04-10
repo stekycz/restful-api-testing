@@ -64,7 +64,7 @@
 
 ## Bibliography
 
-- [1]<a name="Fielding2000"></a>: Roy Fielding. *Architectural Styles and the Design of Network-based Software Architectures*. 2000. (http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
+- [1]<a name="Fielding2000"></a>: R. Fielding. *Architectural Styles and the Design of Network-based Software Architectures*. 2000. (http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
 - [2]<a name="APIBlueprintSpecification"></a>: *API Blueprint Language Specification*. (https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md)
 - [3]<a name="JSONSchema"></a>: *JSON Schema*. (http://json-schema.org/)
 - [4]<a name="Trello"></a>: *Trello*. (https://trello.com/)
@@ -77,6 +77,7 @@
 - [11]<a name="RAML"></a>: *RAML*. (http://raml.org/)
 - [12]<a name="Runscope"></a>: *Runscope Radar*. (https://www.runscope.com/)
 - [13]<a name="Dredd"></a>: *Dredd*. (https://github.com/apiaryio/dredd)
+- [14]<a name="HTTP"></a>: R. Fielding; J. Gettys; J. Mogul; H. Frystyk; L. Masinter; P. Leach; T. Berners-Lee. *Hypertext Transfer Protocol -- HTTP/1.1*. 1999. (http://www.w3.org/Protocols/rfc2616/rfc2616.html)
 
 ```
 @todo Find some articles or books about software testing and testing process
