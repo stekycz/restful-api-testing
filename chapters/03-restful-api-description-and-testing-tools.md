@@ -22,9 +22,7 @@ I wanted to consider speed of testing using specific testing tool however they a
 
 #### SOAP UI
 
-http://www.soapui.org/
-
-The official web site for this project can be found on www.soapui.org. Many interesting informations related to API testing is there. My first opinion is that these project is targeting corporate companies. I wanted to try this item in use but their trial version requires registraion which I do not like. My opinions on following lines are based on documentation and video on the internet.
+Many interesting informations related to API testing is documentation on official web site[[7](../index.md/#SOAPUI)]. My first opinion is that these project is targeting corporate companies. I wanted to try this item in use but their trial version requires registraion which I do not like. My opinions on following lines are based on documentation and video on the internet.
 
 The documentation is exhaustive and contains many screenshots. It looks you are able to configure everything from graphical user interface. It is simple and it is possible to configure many technival parameters. However the UI contains too many buttons and block for me so I am a little bit confused. I think it can be useful for someone who needs GUI to configure tests and who do it every day.
 
@@ -36,21 +34,17 @@ How I already wrote it looks as corporate solution for me. It can do many things
 
 #### REST-assured
 
-https://code.google.com/p/rest-assured
-
 Most of information about this tool can be found in its repository and wiki on Google Code. REST-assured is written in Java and the simpliest usage would be in jUnit. It supports many HTTP specific methods for validation which can be useful. However I see this tool as corporate tool as well. I know Java is faster then script languages but in RESTful API testing the test will waiting for response most of time. I do not know why to use it for simple projects which are not written in Java.
 
 It can ba hard to write some tests if you do not know Java but it is relatively easy to learn. There is not way to describe API in other way then writing tests assertions. It is kind of uncomfortable if you have no possibility to generate API description from tests or you can not use API description for tests simplification. I can not say it is hard to write simple tests for your API but it requres Java and probably some other related libraries. However if you write some test then it looks like you write general english sentence and it is valuable for me.
 
 You can assert all basic parameters for request or response using this tool. It also provides some methods specific for cookies. It also supports multi-value headers and cookies which could be useful for more complicated APIs. I really appreciate it can assert value from response message body if it is JSON. It really helps because you do not need to parse response JSON to some structure by yourself because it does REST-assure for you. If you do not want to assert exact value you can use JSON schema validation. I also appreciate definition of base URI and port of the endpoint. It can be used for dynamic definition of endpoint for each test if you run tests in parallel. However I did not test how it works exactly. However it is still only REST assertion tool so you must use another testing tool for running or you can create a simple program by your own.
 
-It should be compatible with jUnit very well because it is mentioned [in documentation](https://code.google.com/p/rest-assured/wiki/GettingStarted). I do not know about some other testing tool for Java so I assume it is enoght to support jUnit. I also assume it is compatible with CI solutions with which jUnit is compatible by itself.
+It should be compatible with jUnit very well because it is mentioned in documentation[[8](../index.md/#rest-assured)]. I do not know about some other testing tool for Java so I assume it is enoght to support jUnit. I also assume it is compatible with CI solutions with which jUnit is compatible by itself.
 
 REST-assured is very good testing tool for RESTful APIs which supports many assertions and prcesses around it. I would use it on project where Java is used only. I think it is not comfortable to write tests in Java using Ruby, Python, Node.js or PHP for writing your application. It also does not support description of API so you have to create combination with another tool or write description of API in different place.
 
 #### Postman
-
-http://www.getpostman.com/
 
 Postman is a browser extension which allows you to define HTTP requests and browse its responses. It is basic version of this tool. You can pay for premium usage which allows you to write some expectations to response and so create tests.
 
@@ -64,8 +58,6 @@ You still must click to button to run tests and check by your eyes if every test
 
 #### frisby.js
 
-http://frisbyjs.com/
-
 Frisby is project written in JavaScript to run using Node.js. It is build on top of Jasmine testing framework and I see it as very similar tool as REST-assured. It is easier to use it if you already know Jasmine. If you do not usage is still very simple.
 
 It does not describe API. It is only testing tool. However it supports many interresting assertions. It supports exact expectations and you can also define so called "contains" expectatins. For example if you want to assert only part of some header you do not have to write any regular expresion but there is an expectation method prepared for you. You can also define your own assertions using anonymous functions and assertions in Jasmine. All assertions can be found in offical documentation. Definition of expectations is simple and powerful but definition of request is very poor. You can define only URL with all URL parameters in the string, parameters and sending data. I did not found any way how to specify request headers and so how to define some authetification.
@@ -73,8 +65,6 @@ It does not describe API. It is only testing tool. However it supports many inte
 Its integration with some CI server depends on Jasmine. However I assume there should not be any problem because it is a popular framework for testing. I think it is a good tool for testing simple API without authentication and special request specific headers.
 
 #### RAML
-
-http://raml.org/
 
 RAML is and acronym RESTful API modeling language. SO it is only a description tool for our purpose. It is based on relatively popular syntax YAML used often in Ruby projects.
 
@@ -85,8 +75,6 @@ Some related project exists to support RAML in development tools. There exists p
 How you can see this modeling language can be used by some development tools and you can create your own to support RAML. Howeever wehen I want to create tests for my API I do not want to write my own support for some modeling language which is in my opininon too verbose.
 
 #### Runscope Radar
-
-https://www.runscope.com/
 
 Instead of previous tools Runscope Radar is not local machine tool but it is cloud service. It is very simple tool with similar possibilities to SOAP UI and Postman. You just define expected response for specific request.
 
