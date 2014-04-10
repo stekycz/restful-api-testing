@@ -92,6 +92,14 @@ How you can see this modeling language can be used by some development tools and
 
 https://www.runscope.com/
 
+Instead of previous tools Runscope Radar is not local machine tool but it is cloud service. It is very simple tool with similar possibilities to SOAP UI and Postman. You just define expected response for specific request.
+
+It allows you to assert headers, response status code and body as JSON, XML or plain text. All these values you can assert by some comparators eg. equality of real and expected value or if value contains expected part of value.
+
+It is cloud service and it is not for free of course. You can try it for free first 30 days and then you must choose on of pricing plans. The cheapest plan costs $49 per month and there is a restriction to 5 team members and 50000 requests per month.
+
+However it does not support testing of private APIs. If requires public access to tested API which I do not like. When I want to test my API I usually have some CI server on which I want to run my tests. This server should not be public and so I cannot test it by Runscope Radar.
+
 #### Dredd
 
 https://github.com/apiaryio/dredd
