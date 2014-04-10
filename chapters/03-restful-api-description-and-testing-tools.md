@@ -46,11 +46,7 @@ You can assert all basic parameters for request or response using this tool. It 
 
 It should be compatible with jUnit very well because it is mentioned [in documentation](https://code.google.com/p/rest-assured/wiki/GettingStarted). I do not know about some other testing tool for Java so I assume it is enoght to support jUnit. I also assume it is compatible with CI solutions with which jUnit is compatible by itself.
 
-REST-assured is very good testing tool for RESTful APIs which supports many assertions and prcesses around it. I would use it on project where Java is used only. I think it is not comfortable to write tests in Java using Ruby, Python, Node.js or PHP for writing your application. It also does not support description of API so you have to create combination with another tool or write description of API in different place. 
-
-#### Swagger
-
-https://github.com/wordnik/swagger-spec
+REST-assured is very good testing tool for RESTful APIs which supports many assertions and prcesses around it. I would use it on project where Java is used only. I think it is not comfortable to write tests in Java using Ruby, Python, Node.js or PHP for writing your application. It also does not support description of API so you have to create combination with another tool or write description of API in different place.
 
 #### Postman
 
@@ -106,4 +102,4 @@ https://github.com/apiaryio/dredd
 
 ### Evaluation of compared tools
 
-### Differences RESTful API testing against to software testing in general
+### Differences between RESTful API testing and software testing in general
