@@ -18,7 +18,7 @@ I focus on continous integration testing so I have to consider compatibility wit
 
 I wanted to consider speed of testing using specific testing tool however they are not comparable because each is written in different programming language and that could affect the result a lot. The only relatively comparable option is running tests in parallel. It means in many processes or threads. The tool which supports this feature should run faster then single thread tool.
 
-### Tools comparison
+### Basic tools description
 
 #### SOAP UI
 
@@ -88,6 +88,6 @@ However it does not support testing of private APIs. If requires public access t
 
 https://github.com/apiaryio/dredd
 
-### Evaluation of compared tools
+### Tools comparison
 
 ### Differences between RESTful API testing and software testing in general
