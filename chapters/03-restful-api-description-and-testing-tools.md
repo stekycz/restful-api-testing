@@ -66,7 +66,7 @@ Its integration with some CI server depends on Jasmine. However I assume there s
 
 #### RAML
 
-RAML is and acronym RESTful API modeling language. SO it is only a description tool for our purpose. It is based on relatively popular syntax YAML used often in Ruby projects.
+RAML is and acronym RESTful API modeling language. So it is only a description tool for our purpose. It is based on relatively popular syntax YAML used often in Ruby projects.
 
 It supports hierarchy of resources by its own structure, definition of parameters and headers and it also supports so called traits. Traits are supposed to use for common parameters on many resources. It can be paging for example. Resource path can be parameterized what can be useful for generating of request URI. However it supports only 4 basic HTTP methods - GET, PUT, POST and DELETE. They are basics but I do not see any reason not to support methods like HEAD, PATCH or OPTIONS.
 
@@ -96,4 +96,14 @@ This tool is very easy to use if you already have definition of your API written
 
 ### Tools comparison
 
-### Differences between RESTful API testing and software testing in general
+Let's sum discovered information about RESTful API description and testing tools. Some of described tools are focused more on description and others are focused on testing itself. However some of them are partially focused on both and those tools I call prototyping tools.
+
+Pure description tool is RAML and API Blueprint mentioned with Dredd. Both tools want to describe RESTful API as simple as possible and easy to read and use by computer. However RAML is highly technical solution using YAML syntax. API Blueprint uses Markdown syntax which is relatively simple to write in by general user. I will focus more on API Blueprint later. However it is my favorite language to describe RESTful API.
+
+Next group of tools I would use for RESTful API prototyping. These are Postman and SOAP UI. Postman is simple click and go solution for simple testing and also for prototyping of requests. SOAP UI is more powerful because it support more protocols and there also exists plugin for RAML. The biggest advantage of Postman is that it is lightweight tool. I use Postman in my work because I do not need so many functions which SOAP UI supports. Simplicity of usage and its UI is realy important for me here.
+
+The largest group contains the rest of tools. Those are REST-assured, frisby.js, Runscope Radar and Dredd. These tools are purly focused on testing of RESTful API. REST-assured and frisby.js are very similar. The first is written in Java and the second in JavaScript. However REST-assured is more powerful because it supports better configuration of requests then frisby.js. Runscope Radar is simple click and go tool specialized for testing. However its tests are run on public endpoint what would be unwanted by many companies. The last tool is Dredd focused on testing specified contract (an interface) for RESTful API. It does not test any scenario. Scenarios are supported by REST-assured and frisby.js because you have code of test under your own control.
+
+At the end I think the most univarsal tool is Dredd using API Blueprint now. The reason why I think so is that these tools are very well combined together. API Blueprint is used for description and can be published on Apiary website which generates simple documentation. The documentation also supports prototyping and development proxies to keep development of server and client separated. Some other tools are more powerful in some special cases but Dredd and API Blueprint is on a good way to support them also in my opinion. Their strengths are hardly to reach by other tools but technical improvements are easier I think.
+
+Next chapter focuses more on API Blueprint syntax and its possibilities and also on Dredd and its behavior.

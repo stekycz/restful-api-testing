@@ -151,3 +151,5 @@ Tento proces ovšem nemusí být jen jeden pro daný projekt. Pro vývojové vě
 Jak je vidět, při použití této techniky můžeme nastavit procesy téměř libovolně pro každý projekt. Můžeme si nastavit více dílčích procesů pro průběžné a rychlé buildy, periodicky spouštět dlouhotrvající, ale princip zůstává stejný.
 
 Existuje celá řada nástrojů pro zavedení tohoto procesu a dále existuje mnoho nástrojů pro testování software. Málo těchto nástrojů se ale zaměřuje na testování RESTful APIs. V následující kapitole se proto podíváme na některé nástroje sloužící k testování nebo popisu RESTful APIs.
+
+### Differences between RESTful API testing and software testing in general
