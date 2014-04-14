@@ -153,3 +153,9 @@ Jak je vidět, při použití této techniky můžeme nastavit procesy téměř 
 Existuje celá řada nástrojů pro zavedení tohoto procesu a dále existuje mnoho nástrojů pro testování software. Málo těchto nástrojů se ale zaměřuje na testování RESTful APIs. V následující kapitole se proto podíváme na některé nástroje sloužící k testování nebo popisu RESTful APIs.
 
 ### Differences between RESTful API testing and software testing in general
+
+- Co zmanená black-box a co white-box testování pro RESTful API?
+- Jaký je rozdíl mezi integračním a systémovým testem pro RESTful API?
+- Co je jednotka RESTful API pro unit testy?
+- Testovací server/endpoint - jak a kdy vytvářet? Jaká jsou úskalí?
+- Testujeme server nebo klienta?
