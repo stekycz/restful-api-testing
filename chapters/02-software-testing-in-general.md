@@ -1,8 +1,8 @@
 ## Software testing in general
 
-Abych se mohl zaměřit na testování RESTful API, považuji za vhodné nejprve zopakovat základy testování software. Jedná se o součást procesu vývoje software, která je velice důležitá, ale která bývá z různých důvodů opomíjena či je jí přikládána menší důležitost. Pokud je vyvíjený software testován, je vhodné mít přehled o možnostech testování a právě tyto možnosti v této kapitole stručně popíšu. Následující kapitoly budou předpokládat znalost zde uvedených pojmů a souvislostí.
+Before focusing on testing of _RESTful API_ I think it is good to remember basics of software testing. It is a part of software development process which is realy important however it is relatively often forgotten or it is od the second way. If developing software is tested then it is good to have some overview of possibilities of testing and these possibilities I will describe in this chapter. Following chapters will assume knowledge of terms and relations from here.
 
-Budu se věnovat celkem třem různým klasifikacím testů. Je vhodné si uvědomit, že konkrétní jeden test či skupina testů může být zařazena do více než jedné skupiny a že lze různé vlastnosti testů téměř libovolně kombinovat.
+I will focus on three tests classifications. It is good to know that one specific test or group of tests can be classified in more then one group and some test parameters can be combined almost arbitrarily.
 
 ### Testing methods
 
