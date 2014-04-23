@@ -77,7 +77,7 @@ These tests are very similar to system tests however there is a difference. Thes
 
 ### Testing types
 
-Posledním způsobem dělení testů, kterým se zde zabývám, jsou typy testů. Osobně to vidím spíše jako obecný účel konkrétního testu. V mnoha ohledech se totiž nejedná o to, jak test napsat, jakou funkčnost testuje nebo jak moc důkladě testuje daný kód. Těchto typů existuje celá řada, zde se ale budu věnovat jen těm, které považuji za nejlépe využitelné při testování RESTful API. Účel jednotlivých typů bude nejlépe vidět z jejich popisů a z příkladů. Narozdíl od předchozích skupin, jednotlivé typy lze vzájemně kombinovat, protože jeden test může sloužit více účelům (například regresní a destrukční).
+Tha last categorization of tests, which I describe here, is type of test. I see it as a general purpose of the test. In many cases it does not care about how to write a test, which functionality should be tested or how well it tests given code. There exists many of these types so I will describe only these which could be useful for RESTfup API testing in my opinion. The purpose of each type will be better undestandable from description and an example. Against to previous methods and levels these types can be combined together if it make sense (regression and destruction for example).
 
 #### Compatibility testing
 
