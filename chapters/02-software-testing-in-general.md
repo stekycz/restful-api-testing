@@ -159,8 +159,28 @@ There exists many tools for managing this process and there also exists many sof
 
 ### Differences between RESTful API testing and software testing in general
 
-- Co zmanená black-box a co white-box testování pro RESTful API?
-- Jaký je rozdíl mezi integračním a systémovým testem pro RESTful API?
-- Co je jednotka RESTful API pro unit testy?
-- Testovací server/endpoint - jak a kdy vytvářet? Jaká jsou úskalí?
-- Testujeme server nebo klienta?
+I described some methods, levels and types of testing. I also added description of development and testing process. However there is missing one important thing. It is the reason why I wrote so many text. I want to think about binding of RESTful API testing to regular testing process. I want to find out some similarities and some differences. I will decribe it in the same direction as above - methods first, then levels and an the end types of tests.
+
+If I consider RESTful API as just another interface then it should be testable using both methods - _white box_ and _black box_. However what does it mean specificaly for RESTful APIs? One possibility is that is is usable in the same way. If the implementation is known then tests can be build using _white box_ to test edge cases.
+
+On the other side RESTful API is not as simle as regular interface. The data which are provided by RESTful API are loaded from some storage and transformed on server to the ouput. Is not it familiar? It sounds to me like regular web UI. The only difference here is similicity of communication for end user and the format of received data. I usually do not test edge cases for regular web because it should be done by other tests which are focused on functionality.
+
+I could think that RESTful API are same as regular web UI. However I do not think so because RESTful API is still specific. What is important in my opinion is level of view to these tests. They should test edge cases specific for HTTP protocol used by RESTful API because it is a part of it. However it should not test various values which affect behavior on the server and not protocol itself.
+
+When I mention a level of test then there is a question to which levels can be testing of RESTful API categorized. Could it be tested on _system test_ level? I am sure it should because _system tests_ should test everything if possible. What about _integration tests_ or _unit tests_? Can be RESTful API tested on these levels?
+
+Let's start with _unit test_ because of its similicity. What is the unit of RESTful API? There are two possibilities in my opininon. It could be one resource or one method which can be used on one resource. The unit should be the smallest part of tested interface. So it should be a resource with one method which can be used for the resource. However how I alredy wrote unit test should test the unit only. The unit here mean whole application on the server so that logic should me mocked. What stays then? There is only an interface of the API because all other part are part of server logic. That is the reason why I think there are not _unit tests_ talking about RESTful API.
+
+_Integration tests_ are a different story. They should tests if all components works correctly together. It means if loading data from storage and output formatter works correctly in RESTful API. It could also tests if given parameter has wanted meaning or if it is even processed. These tests are realy important in my opinion and they definitely should be in process which tests RESTful API.
+
+However what is a difference between _integration test_ and _system test_ for RESTful API? I think there does not have to be any. However there should be a difference in complexity of testing as I wrote already in section about _integration tests_ earlier. The difference is that _integration test_ can test if some parameter is used or not. However system test should test if the interface corresponds with documentation and if defined scenarios works correctly.
+
+At the end an _integration test_ for testing usage of some parameter can be created with other tests because there does not have to logic which sends it to real interface but there can be some data provider which just provides data to specific resource. 
+
+So the difference between regular software testing and RESTful API testing is on _system tests_ level. Other tests can be processed together without any specific tools.
+
+After all we still need some server or endpoint to which testing tool should send testing requests and which should return appropriate responses. This endpoint should be created during testing process and should be setted to some known state (e.g. prepared database).
+
+It is relatively simple to create one testing endpoint before running tests. However some tests could only read data, what is safe, but some tests could write in database and that could be dangerous. If all RESTful API tests runs in serial then they can clean database before every test. However if you want to speed tests running and they run in parallel then each test should have some isolated database for itself. It can be handled many ways. The simpliest is to create new database for each test. But it is slow and it is not needed for read only tests. It can be updated to create one read only database and each test which can write some data will create its own database. It can improve performance of these tests dramaticaly. The best solution would be if each test would run database transaction for itself and rollback it when finished. This approach has a big disadvantage in my opinion because it must support multiple transactions in one transaction which encapsulates it.
+
+The last thing I want to mention is that I focus on testing of RESTful API on server and I do not focus on testing client for RESTful API. A client testing is very different thing and it is out of this thesis.
