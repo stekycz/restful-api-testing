@@ -133,29 +133,29 @@ Independently on how tests works it is important to run them repeatedly to valid
 
 #### Continuous integration
 
-Jak už název napovídá, jedná se o pokračující, neustálý proces integrace. Integrací v tomto smyslu nemusí být nutně spolupráce všech systémových komponent. Cílem tohoto procesu je odhalování chyb už během vývoje aplikace a ne až po jejím dokončení. Každá aplikace, ať už kompilovaná nebo skriptovaná, desktopová nebo webová, každou je možné sestavit do stavu, kdy je možné ji jednoduše nainstalovat či nasadit na server. Protože proces sestavení bývá komplikovaný a pro průběžnou kontrolu tedy časově náročný, je pro tyto účely využit proces Continuous integration.
+How you can imagine from the name it is still cintinuous process of integration. The integration does not have to mean cooperation of all system components here. The target of this process is disclosing of errors during development of an application and not after finished development. Each application (compiled, scripted, desktop or web based) can be build to some state which is simple to install or to deploy on a server. Process of so called building can be complicated and long running and that is the reason why it is good to use _continuous integration_ for it.
 
-Tento proces má několik požadavků a skládá se z několika kroků. Největším požadavkem je využití společného repozitáře pro verzování kódu (např. SVN, GIT). Tento požadavek souvisí se samotnými kroky tohoto procesu. Dalším požadavkem je tzv. _build_ nebo _integration_ server, který je určen k sestavování aplikace. Mezi další požadavky patří například schopnost vývojového týmu udržovat tento proces, aktualizovat potřebné konfigurace a vyhodnocovat výstupy jednotlivých sestavení.
+The process has some requirements and contains a few steps. The first important requirement is to have one shared repository for code (eg. SVN, GIT). The requirement is binder to steps of the process. The second requirement is so called _build server_ or _integration server_ which is used for building of the application. Another requirement is the ability of the team to keep this process alive, update needed configurations and evaluate outputs of (almost) each build.
 
-Prvním krokem tohoto procesu je získání aktuální verze aplikace z verzovacího systému a načtení jeho závislostí. Jaký kôd se bude získávat záleží na tom, jak často a za jakých podmínek se sestavování spouští. Tyto možnosti rozeberu dále.
+The first step of the process is obtaining of current version of the application from the repository and loading of its dependencies. Which version of the code will be fetched depends on building period and other parameters which may affect running of a build. I will mention these parameters later.
 
-Druhým (volitelným) krokem je kompilace aplikace v závislosti na použité platformě. V případě skriptovacích jazyků může být tento krok vynechán. Pokud v tomto kroku nastane chyba, dané sestavení končí chybou.
+The second (optional) step is compilation of the application depending on used platform. It can be omitted for case of scripting languages. If this step fails then whole build is stoped and marked as failed.
 
-Následuje krok testování, který je dle mého názoru nejdůležitější. Tento krok by měl být povinný pro všechny aplikace nezávisle na použité platformě a na typu aplikace. V této fázi by měly proběhnout všechny automatické testy, které k aplikaci existují. Pokud jediný test neprojde, sestavení končí chybou.
+Next step is testung itself. It is the most important step in my opinion. This step should be required for all applications independently on used platform on type of application. All automatic tests should be run in this step which exists for the code. If at least one test does not pass then whole build did not pass.
 
-Pokud projdou všechny testy, může v případě webové (či jiné serverové) aplikace následovat krok automatického nasazení na testovací server. Teoreticky je možné v tuto chvíli vytvořit automaticky novou verzi produktu a uveřejnit aktualizaci. Osobně si ale myslím, že nové verze by měly být vydávány manuálně s kontrolou a ne zcela automaticky.
+When all tests passes then it can be automatically deployed to testing server in case of web or server application. Teoretically it is possible to automatically create new version of the product and publish the update. However I think there should be always a manual step which can prevent release of incomplete version.
 
 ```
 @todo Create diagram of continuous integration process
 ```
 
-Celý tento proces se může hodně lišit projekt od projektu. Velkým rozdílem pak může být spouštění tohoto procesu. Pro velké aplikace a dlouhé sestavení je vhodné zvolit periodické sestavení například přes noc. Pokud je sestavení rychlé (řádově jednotky minut), je možné spustit sestavení pro každý nový commit ve verzovacím systému. V případě používání větví je možné rohodovat, které větve budou testované a které ne. V každém případě musí být proces spuštěn při mergnutí změn do hlavní větvě vývoje.
+This process can be hihly specific project by project. The buggest difference can be running of the process. It is good to run the build of large applications (or if the build runs very long) once per day for example. If the build is fast (units of minutes) it can be run for each commit in the repository. If the repository uses branches then it is possible to configure which branches will be tested and which not. However the process must be run after merge of a branche to master branch every time without any side conditions.
 
-Tento proces ovšem nemusí být jen jeden pro daný projekt. Pro vývojové větve můžeme chtít použít jeho zjednodušenou variantu (např. spuštění jen některých testů). To se může hodit při vývoji velkého projektu, jehož sestavení trvá desítky minut. Spuštění zjednodušeného procesu nad novou větví může pomoci rychle odhalit základní chyby a důkladné testy budou provedeny až ve složitějším procesu.
+The process does not have to be only one for the project. There can be special process for development branches which runs only a part of tests. It can be useful for large projects for which the build runs tens of minutes. The easier process can disclose some errors without need of long running. The whole testing process still be run after merge of development branche to the master.
 
-Jak je vidět, při použití této techniky můžeme nastavit procesy téměř libovolně pro každý projekt. Můžeme si nastavit více dílčích procesů pro průběžné a rychlé buildy, periodicky spouštět dlouhotrvající, ale princip zůstává stejný.
+How it can be seen the process can be used and changed specificly for almost every project. It allows us to setup partial processes for short builds or periodically long running builds however the pricip stays the same.
 
-Existuje celá řada nástrojů pro zavedení tohoto procesu a dále existuje mnoho nástrojů pro testování software. Málo těchto nástrojů se ale zaměřuje na testování RESTful APIs. V následující kapitole se proto podíváme na některé nástroje sloužící k testování nebo popisu RESTful APIs.
+There exists many tools for managing this process and there also exists many software testing tools. However low amount of them is focused on RESTful APIs. I will focus on some of tools for description or testing RESTful API in next chapter.
 
 ### Differences between RESTful API testing and software testing in general
 
