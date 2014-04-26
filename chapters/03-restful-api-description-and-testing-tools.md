@@ -22,7 +22,7 @@ I wanted to consider speed of testing using specific testing tool however they a
 
 #### SOAP UI
 
-Many interesting informations related to API testing is documentation on official web site[[7](../index.md/#SOAPUI)]. My first opinion is that these project is targeting corporate companies. I wanted to try this item in use but their trial version requires registraion which I do not like. My opinions on following lines are based on documentation and video on the internet.
+Many interesting informations related to API testing is documentation on official web site[[7](../README.md/#SOAPUI)]. My first opinion is that these project is targeting corporate companies. I wanted to try this item in use but their trial version requires registraion which I do not like. My opinions on following lines are based on documentation and video on the internet.
 
 The documentation is exhaustive and contains many screenshots. It looks you are able to configure everything from graphical user interface. It is simple and it is possible to configure many technival parameters. However the UI contains too many buttons and block for me so I am a little bit confused. I think it can be useful for someone who needs GUI to configure tests and who do it every day.
 
@@ -40,7 +40,7 @@ It can ba hard to write some tests if you do not know Java but it is relatively 
 
 You can assert all basic parameters for request or response using this tool. It also provides some methods specific for cookies. It also supports multi-value headers and cookies which could be useful for more complicated APIs. I really appreciate it can assert value from response message body if it is JSON. It really helps because you do not need to parse response JSON to some structure by yourself because it does REST-assure for you. If you do not want to assert exact value you can use JSON schema validation. I also appreciate definition of base URI and port of the endpoint. It can be used for dynamic definition of endpoint for each test if you run tests in parallel. However I did not test how it works exactly. However it is still only REST assertion tool so you must use another testing tool for running or you can create a simple program by your own.
 
-It should be compatible with jUnit very well because it is mentioned in documentation[[8](../index.md/#rest-assured)]. I do not know about some other testing tool for Java so I assume it is enoght to support jUnit. I also assume it is compatible with CI solutions with which jUnit is compatible by itself.
+It should be compatible with jUnit very well because it is mentioned in documentation[[8](../README.md/#rest-assured)]. I do not know about some other testing tool for Java so I assume it is enoght to support jUnit. I also assume it is compatible with CI solutions with which jUnit is compatible by itself.
 
 REST-assured is very good testing tool for RESTful APIs which supports many assertions and prcesses around it. I would use it on project where Java is used only. I think it is not comfortable to write tests in Java using Ruby, Python, Node.js or PHP for writing your application. It also does not support description of API so you have to create combination with another tool or write description of API in different place.
 
