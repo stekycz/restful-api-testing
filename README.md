@@ -83,9 +83,10 @@ Choose some of the proposed modifications and implement them. Propose implemente
 5. [Creation of scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md)
 	1. [Requirements](chapters/05-creation-of-scenario-testing-tool.md#requirements)
 	2. [Implementation possibilities](chapters/05-creation-of-scenario-testing-tool.md#implementation-possibilities)
-	3. [Implementation of scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md#implementation-of-scenario-testing-tool)
-	4. [Testing of scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md#testing-of-scenario-testing-tool)
-	5. [Examples of usage](chapters/05-creation-of-scenario-testing-tool.md#examples-of-usage)
+	3. [Implementation of proof of concept for scenario testing tool using Cucumber](chapters/05-creation-of-scenario-testing-tool.md#implementation-of-proof-of-concept-for-scenario-testing-tool-using-Cucumber)
+	4. [Improvements and refactoring of the scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md#improvements-and-refactoring-of-the-scenario-testing-tool)
+	5. [Testing of scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md#testing-of-scenario-testing-tool)
+	6. [Examples of usage](chapters/05-creation-of-scenario-testing-tool.md#examples-of-usage)
 6. [Conclusion](chapters/06-conclusion.md)
 7. [Bibliography](#bibliography)
 
@@ -118,6 +119,8 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [25]<a name="Chai"></a>: *Chai*. (http://chaijs.com)
 - [26]<a name="Mocha"></a>: *Mocha*. (http://visionmedia.github.io/mocha)
 - [27]<a name="Gherkin"></a>: *Gherkin*. (https://github.com/cucumber/gherkin)
+- [28]<a name="Protagonist"></a>: *Protagonist*. (https://github.com/apiaryio/protagonist)
+- [29]<a name="Node"></a>: *Node.js*. (http://nodejs.org)
 
 ```
 @todo Find some articles or books about software testing and testing process

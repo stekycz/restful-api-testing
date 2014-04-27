@@ -151,8 +151,221 @@ At the end I decided to use Cucumber[[6](../README.md/#Cucumber)] for RESTful AP
 - relatively verbose tests
 - painful usage without predefined step definitions
 
-### Implementation of scenario testing tool
+### Implementation of proof of concept for scenario testing tool using Cucumber
 
-### Testing of scenario testing tool
+At the begining of development I wanted to create a proof of concept. It ment for me the proof that I choose well the testing tool which I want to extend. In this context it means if Cucumber[[6](../README.md/#Cucumber)] can be used for testing RESTful API.
+
+I have decide to use CoffeeScript[[19](../README.md/#CoffeeScript)] as my primary implementation language. The reason why I choose it is very simple. I wanted to use classes and othe language structures which are not provided by JavaScript. It is also used for implementation of Dredd so I could look to exists code for some help if I get to a stop point. The last reason why I choose is that I have not use it before so I could find out how good or bad it is.
+
+At first I created a few tests in Gherkin[[27](../README.md/#Gherkin)] to be prepared for testing. I will describe testing later in this chapter so I will leave it now.
+
+The main advantage of the new testing tool should be loading of defined RESTful API from API Blueprint file. To allow it I used Protagonist[[28](../README.md/#Protagonist)] library which loads API BLueprint file and returns its AST. Protagonist is developed by Apiary[[20](../README.md/#Apiary)] and it is also used by Dredd[[13](../README.md/#Dredd)].
+
+The code is very simple. At first I require `fs` library from Node.js[[29](../README.md/#Node)] and also Protagonist.
+
+```
+fs = require 'fs'
+protagonist = require 'protagonist'
+```
+
+Definition of loading function follows. It uses asynchronous method calling so it could be hard to undestand. However it should not be a problem if you know JavaScript or other similar language. The function accepts 3 arguments. The first is path to API Blueprint file. Then next argument is a callback for success which accepts loaded AST. The last argument is error callback which accepts error provided by filesystem library or by Protagonist.
+
+The first call in the function is loading of API Blueprint file content. It uses UTF-8 encoding for load but I do not see it as problem because I feel UTF-8 as standard in these days. It is also used by Dredd[[13](../README.md/#Dredd)] which and I did not hear about any problem with it.
+
+If loading does not fail it passes loaded content to Protagoist parse method. If everything goes well then loaded AST is passed to success callback. Otherwise it passes protagnist error to error callback.
+
+```
+load = (blueprintPath, success, error) ->
+  fs.readFile blueprintPath, 'utf8', (parseError, data) ->
+    return error(parseError) if parseError
+    protagonist.parse data, (protagonistError, result) =>
+      return error(protagonistError) if protagonistError
+      success(result.ast)
+```
+
+The loading code ends with exporting loading function from the loading module.
+
+```
+module.exports = load
+```
+
+That complete logic needed to load API Blueprint AST. This is very important part so I created it as module which can be tested by its own.
+
+However more complicated code awaited me. Cucumber is build on two concepts. The first I have already mentioned and it is a step definition. The other is a World. The World is just another name for context of test. It contains common logic for all tests and it is accessible from each step definition. A step definition is just a pattern for one line in Gherkin[[27](../README.md/#Gherkin)] file which do some prepared code.
+
+I will prepare World class at first. The World should know all information about test state. So it stores API BLueprint AST, base URL of the endpoint, path to currently choosen action, currently building request, expected response structure and real response. All these properties could be important for all possible step definitions.
+
+The World also contains 3 methods. The simpliest is `reset` and it is used for eresing last real response. It is needed for scenarios with more then one request and response.
+
+The second method is used for request processing. It sanitize request configured in step definitions and then it is send to the endpoint. There is used Node.js[[29](../README.md/#Node)] library `http` for HTTP communication. The sending code follows.
+
+```
+req = http.request options, handleRequest
+req.write self.request.body if self.request.body != ''
+req.end()
+```
+
+The argument `options` contains preconfigured headers, host, port, path and action method for HTTP request. If the request contains something in body it is also send. A little bit more complicated is implementation of `handleRequest` callback which is called at the begining of HTTP communication.
+
+The callback accepts response object in its argument. It prepartes some event callback to receive HTTP response. If error occures then the error callback is called immidiately. All received data are stored in external variable because data can be received in chunks. At the end of receiving process the response is saved to the World's property for last real reponse. The real response contains headers, body and response status code.
+
+The `callback` call at the end is required by Cucumber[[6](../README.md/#Cucumber)] for correct continue in testing.
+
+```
+buffer = ''
+self = this
+handleRequest = (res) ->
+  res.on 'data', (chunk) ->
+    buffer = buffer + chunk
+
+  req.on 'error', (error) ->
+    errorCallback error if error
+
+  res.on 'end', () ->
+    self.response =
+      headers: res.headers
+      body: buffer
+      statusCode: res.statusCode
+    callback()
+```
+
+The last method in the World is `validate`. It uses Gavel[[17](../README.md/#Gavel) for validation of the last real response. There is no magic instead of processing possible errors for the output. However the code follows.
+
+```
+validate: (callback, errorCallback) ->
+  real = @response
+  expected = @expectedResponse
+  gavel.isValid real, expected, 'response', (error, isValid) ->
+    errorCallback error if error
+
+    if isValid
+      return callback()
+    else
+      gavel.validate real, expected, 'response'
+      , (error, result) ->
+        errorCallback error if error
+        message = ''
+        for entity, data of result
+          for entityResult in data['results']
+            message += entity + ": " + entityResult['message']
+              + "\n"
+        return errorCallback message
+```
+
+The only tricky thing is that method `isValid` does not return details about validity error. The error argument in the callback of `isValid` method is used for other then validation errors. So there is a simple logic is the test does not pass which calls method `validate` on Gavel[[17](../README.md/#Gavel) object.
+
+Now is the time to describe some step definitions. However I would like to say that there exists 3 types of Cucumber[[6](../README.md/#Cucumber)] step definitions. They are named `Given`, `When` and `Then`. How their names suggests they are used for specific purposes.
+
+The `Given` is used for preparing the World. These step definitions should load needed configuration, process known and tested actions which results are required for the test. I prepared two step definitions of this type which prepares the World for the test. Their code follows.
+
+```
+this.Given /^API Blueprint in file "([^"]+)"$/, (filepath, callback) ->
+  self = this
+  BlueprintLoader filepath, (ast) ->
+    self.ast = ast
+    callback()
+  , (error) ->
+    callback.fail error
+
+this.Given /^base url (.*)$/, (baseUrl, callback) ->
+  @baseUrl = url.parse baseUrl
+  callback()
+```
+
+The first step definition loads API Blueprint AST for usage in the test. The API Blueprint file is something what is given for all scenarios so it should be configurable using `Given` step definition. The second is easier and it sets base URL of the endpoint. How it is visible in the code the saved value is not string but there is parsed URL object for future usage.
+
+The next step definition is `When`. It is used to define preconditions of the part of scenario. The proof of concept contains only 2 of these step definitions however it can be used widely.
+
+The first `When` step definition is used to select an action which should be called. The argument for action specification uses following syntax.
+
+```
+Group > Resource > Action
+```
+
+It is the same syntax which is used in Dredd hooks for actions. I choose it because it would be too complicated to try finding an action just by its name in proof of concept. The following code shows finding of the action in API Blueprint AST.
+
+```
+this.When /^I do action (.*)$/, (action, callback) ->
+  @reset()
+  structure = action.split /\s*>\s*/
+  callback.fail 'Action path is not complete' if structure.length < 3
+
+  filteredGroups = @ast.resourceGroups.filter (group) ->
+    return group.name == structure[0]
+  callback.fail 'Group "' + structure[0] + '" was not found' if filteredGroups.length < 1
+  @structure.group = filteredGroups[0]
+
+  filteredResources = @structure.group.resources.filter (resource) ->
+    return resource.name == structure[1]
+  callback.fail 'Resource "' + structure[1] + '" was not found' if filteredResources.length < 1
+  @structure.resource = filteredResources[0]
+
+  filteredActions = @structure.resource.actions.filter (action) ->
+    return action.name == structure[2]
+  callback.fail 'Action "' + structure[2] + '" was not found' if filteredActions.length < 1
+  @structure.action = filteredActions[0]
+
+  callback()
+```
+
+At the begining the state of last real response is reset. It is important for next steps because if there was a real response then it is not needed now. The code also shows that there is triggered an error if a group, a resource or an action is not found.
+
+The second `When` step definition sets the request body for choosen action. It also allows to specify content type of the body by exact header value or by some predefined shortcut. The code is very simple and follows.
+
+```
+this.When /^the request message body is(?: (\w+))?$/, (contentType, body, callback) ->
+  @reset()
+  contentType = @contentTypes[contentType] if @contentTypes[contentType]?
+  @request.headers['content-type'] = contentType
+  @request.body = body
+  callback()
+```
+
+At the begining there is `reset` method as in previous step definition. The reason why it is there too is very simple. Cucumber[[6](../README.md/#Cucumber)] does not require any order of step definitions so they should work independently on each other. So if the body step definition is written before action choosing step definition it should still work.
+
+The last type of step definitions is `Then`. It is used for expectations for the result. It is similar to English language. Reading scenario is very simple because it looks like natural language.
+
+I wrote 2 step definitions of this type for proof of concept version. The first one is used for assertion of the real response status code. The code follows.
+
+```
+this.Then /It should be ([^()]+)(?: \((\d+)\))?$/, (name, code, callback) ->
+  this.expectedResponse.statusCode = parseInt code
+  self = this
+  @processRequest () ->
+    self.validate () ->
+      callback()
+    , (msg) ->
+      callback.fail msg
+  , (msg) ->
+    callback.fail msg
+```
+
+There is setup of expected response status code and then there is run method `processRequest` defined on the World. There is kind of mess in callbacks however if the process fails then the error callback is called. If the request is processed correctly then `validate` method defined on the World is called. And this method also accepts success and error callbacks. At the end if the response status code is as expected then the step definition passed.
+
+The last step definition I wrote for proof of concept was for assertion of the response body. As same as request body step definition it also support expecting of content type. The code is very similar to the previous step definition so I will make it short.
+
+```
+this.Then /^the response message body is(?: (\w+))?$/, (contentType, body, callback) ->
+  contentType = this.contentTypes[contentType] if this.contentTypes[contentType]?
+  this.expectedResponse.headers['content-type'] = contentType
+  this.expectedResponse.body = body
+  ...
+```
+
+Code snippets mentioned here are final for the proof of concept. I iterated many times using tests to make them work. However at the end the proof of concept worked so I decide to continue with Cucumber[[6](../README.md/#Cucumber)] because it looks relatively simple to create more step definitions.
+
+### Improvements and refactoring of the scenario testing tool
+
+The proof of concept works relatively well however there is still much work to do. I decided to do some refactoring and tests improvements to have well tested and programmed tool.
+
+The first part I have changed was processing of request, response and its validation. So I have set aside this code from the World to classes. These classes can be also teste separately which is very good in my opinion. I have had thoughts about future usage of all API Blueprint possibilities so I prepared these classes for more then they really do now.
+
+The first class is `RequestBuilder`. It is simple encapsulating class around request data. So it contains host, port, method and URI template for the request. However it also stores header, body and parameters. I think the code snippet is not necessary here because it is very simple.
+
+The second class is `RequestProcessor`. However there is nothing to say because it is just the same code as it was in the World. However it can be tested separately now.
+
+The last class is `ResponseValidator` which uses Gavel[[17](../README.md/#Gavel) for validation. However it is also the same code from the World given aside.
+
+### Testing of the scenario testing tool
 
 ### Examples of usage
