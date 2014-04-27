@@ -113,6 +113,10 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [20]<a name="Apiary"></a>: *Apiary*. (http://apiary.io)
 - [21]<a name="Selenium"></a>: *Selenium*. (http://docs.seleniumhq.org)
 - [22]<a name="balanced-api"></a>: *Balanced API*. (https://github.com/balanced/balanced-api)
+- [23]<a name="Buster"></a>: *Buster.js*. (http://docs.busterjs.org/en/v0.7.x)
+- [24]<a name="Jasmine"></a>: *Jasmine*. (http://jasmine.github.io)
+- [25]<a name="Chai"></a>: *Chai*. (http://chaijs.com)
+- [26]<a name="Mocha"></a>: *Mocha*. (http://visionmedia.github.io/mocha)
 
 ```
 @todo Find some articles or books about software testing and testing process
