@@ -109,6 +109,7 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [16]<a name="DreddAllTransHook"></a>: *Dredd ALL transactions hook*. 2014. (https://github.com/apiaryio/dredd/issues/63)
 - [17]<a name="Gavel"></a>: *Gavel*. (https://www.relishapp.com/apiary/gavel/docs)
 - [18]<a name="Amanda"></a>: *Amanda*. (https://github.com/apiaryio/Amanda)
+- [19]<a name="CoffeeScript"></a>: *http://coffeescript.org/*. (http://coffeescript.org)
 
 ```
 @todo Find some articles or books about software testing and testing process
