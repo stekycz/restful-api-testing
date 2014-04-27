@@ -366,6 +366,52 @@ The second class is `RequestProcessor`. However there is nothing to say because 
 
 The last class is `ResponseValidator` which uses Gavel[[17](../README.md/#Gavel) for validation. However it is also the same code from the World given aside.
 
+The next logic I have set aside is translation of content type shortcuts to values for HTTP headers. Currently there is only JSON and XML. However there is no reason why there should not be any other. The code is also very simple.
+
+```
+contentTypes =
+  json: 'application/json'
+  xml: 'application/xml'
+
+translate = (type) ->
+  key = type.toLowerCase()
+  type = contentTypes[key] if contentTypes[key]?
+  return type
+
+module.exports = translate
+```
+
+The only logic there is that if the type exists as a key in translation table then the translation is used. Otherwise the given value is returned.
+
+I have also set aside the logic which find action by its path in API Blueprint AST. However the new class has the AST ast its own property because action finding can be repeated during one scenario but the AST stays the same. A testability of this code is also good improvent as in previously refactored code.
+
+The next thing I improved is building of expected response. As same as the `RequestBuilder` it is very simple class which contains expected data for the response. However there is method `toResponseObject` which return expected response as simple object which can be used in validation.
+
+All these changes also affected the World and step definitions so they have been updated appropriately.
+
+I have also improved readability of the scenario by creation of response status code translator. The point of this translator is not to require number of response status code in `Then` step definition. The code of translation function is almost the same as for content type translation. However there is difference in translation table.
+
+The translation table for response status codes is not static but it is dynamicaly build from status codes defined in `http` library in Node.js[[29](../README.md/#Node)]. It is possible to have some codes defined staticly however Node.js has very good list of responses so It think it is good enough.
+
+One of the most visible improvement was addition of step definition for request and response headers. The implementation was very simple because I have had already prepared model classes. The code of both step definitions follows.
+
+```
+this.When /^the request message header ([\w-]+) is (.*)$/, (header, value, callback) ->
+  @reset()
+  @getRequest().setHeader header, value
+  callback()
+
+this.Then /^the response message header ([\w-]+) is (.*)$/, (header, value, callback) ->
+  @expectedResponse.setHeader header, value
+  @processRequest callback, callback.fail
+```
+
+The code shows that the pattern is very similar to both step definitions however there is a difference in the code which is done behind. I have also updated Cucumber[[6](../README.md/#Cucumber)] tests to test these step definitions.
+
+The next simlicity I have done is loading of base URL from API Blueprint file. There is the `HOST` metadata field which can be defined. It can be overriden in the test by usage of appropriate `Given` step definition however it is not required anymore.
+
+That is the last improvement I have done before focusing on writing this text. I have prepared partial updated which allows inheriting default headers and parameters from API BLueprint file however it is not simple issue. I have also known another 4 issues which should be done before final public release. However there is a short time so I hope I will find time to finish it after refering this thesis.
+
 ### Testing of the scenario testing tool
 
 ### Examples of usage
