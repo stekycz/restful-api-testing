@@ -2,7 +2,6 @@
 
 - [Description](#description)
 - [Requirements](#requirements)
-- [Author](#author)
 - [Abstract](#abstract)
 - [Abstrakt](#abstrakt)
 - [Table of Content](#table-of-content)
@@ -10,9 +9,7 @@
 
 ## Description
 
-This is the text of master thesis at [FIT CTU in Prague](http://fit.cvut.cz/) written by [Martin Štekl](#author).
-
-Final text will be completely in English however first notes are made in Czech for faster progress.
+This is the text of master thesis at [FIT CTU in Prague](http://fit.cvut.cz/) written by [Martin Štekl](#author). Feel free to contact me on [email](mailto:martin.stekl@gmail.com) or follow me on [Twitter](https://twitter.com/stekycz).
 
 Original requirements can be found as a [Gist](https://gist.github.com/stekycz/8482392).
 
@@ -25,10 +22,6 @@ Study the basics of testing, different methods, levels and types of testing, pro
 Study the syntax of the [API Blueprint](https://github.com/apiaryio/api-blueprint) language for describing RESTful API and study testing tool [Dredd](https://github.com/apiaryio/Dredd). Compare current testing possibilities using this tool to previously described methods and then propose possible changes and modifications to extend the capabilities of this tool.
 
 Choose some of the proposed modifications and implement them. Propose implemented changes as Pull Requests on server [GitHub](https://github.com/) for merge in main repositories of this tool.
-
-## Author
-
-My name is Martin Štekl. Feel free to contact me on [email](mailto:martin.stekl@gmail.com) or follow me on [Twitter](https://twitter.com/stekycz).
 
 ## Abstract
 
@@ -119,4 +112,7 @@ My name is Martin Štekl. Feel free to contact me on [email](mailto:martin.stekl
 
 ```
 @todo Find some articles or books about software testing and testing process
+```
+```
+@todo Provide more details about references if possible
 ```
