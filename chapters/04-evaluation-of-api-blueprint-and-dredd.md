@@ -170,12 +170,62 @@ Concept of models is to remove duplicated structures in examples. You can specif
 
 ### Dredd testing process
 
-The most important thing about Dredd is that it is not tool for testing API but for testing API Blueprint. Talking in testing terminology it is a system testing tool, not intergration testing tool. It was confusing for me at first time but after discussion with team from Apiary it becames clear to me. This is really important information because it changes meaning of testing using Dredd. I will describe Dredd in my new point of view. However I will points to differencies with my previous confusing understanding to explain what Dredd really is.
+The most important thing about Dredd is that it is not tool for testing API but for testing API Blueprint. So it does not test any functionality, side effects or scenarios. The primary target of this testing tool is to validate implemented API againt to API Blueprint. It was confusing for me at first time but after discussion with team from Apiary it becames clear to me. This is really important information because it changes meaning of testing using Dredd. I will describe Dredd in my new point of view. However I will points to differences with my previous confusing understanding to explain what Dredd really is.
 
-#### Configuration
+#### Test configuration and running
 
-#### Test running
+Dredd support running from CLI only now. I think it is not problem because I want to run it on CI server which also uses CLI to run tests. The mask of command is following.
+
+```
+dredd <path to blueprint> <api_endpoint> [OPTIONS]
+```
+
+There are two required arguments - path to API Blueprint file which specifies interface of tested API and API endpoint to which dredd will send testing requests. There is also many other options but usually only a few will be used often in my opinion.
+
+Before running Dredd there is need to know on which URI the endpoint will be available or where it runs already. That is the worst possibility of testing which I have describe in chapter about testing process of RESTful API. If some test changes data behind the endpoint then next tests could fail. However Dredd supports option `--sorted, -s` which runs requests to one resource in predefined order of methods. The order currently (27<sup>th</sup> April 2014) is `CONNECT, OPTIONS, POST, GET, HEAD, PUT, PATCH, DELETE, TRACE`.
+
+Dredd also supports hooks written in JavaScript or CofeeScript. These hooks can be configured for Dredd using option `--hookfiles, -f` which specifies a mask for hook files so it is possible to have each hook in its own file. This feature has been introduced two months ago (February 2014).
+
+An example of hooks from GitHub Dredd wiki[[15](../README.md/#DreddHooks)] (current to 27<sup>th</sup> April 2014).
+
+```
+{before, after} = require 'hooks'
+
+before "Machines > Machines collection > Get Machines", (transaction) ->
+  console.log "before"
+
+after "Machines > Machines collection > Get Machines", (transaction) ->
+  console.log "after"
+```
+
+Hooks are very useful however there are some limitations now. For example there is no simple way to define one hook for all transactions. There also exists an issue with discussion about it[[16](../README.md/#DreddAllTransHook)]. So the example above shows one hook for transaction "Get Machines".
+
+Other useful options are `--header, -h` and `--user, -u`. The first option can add HTTP header to all requests so it is possible to filter testing traffic on the endpoint for example. The second option is used for Basic Auth credentials which can be useful for restricted endpoint access. Credentials should be passed in the form `username:password`.
+
+There is also one option which can be useful for validation of prepared Dredd testing process. It is `--dry-run` which does not send any request. It does not do any test but its advantage is in validation of other parameters, API Blueprinnt file etc.
+
+Most of options are closely binded to CI server of running environment.
 
 #### CI server integration
 
-#### JSON schema validation
+There are two most important options for usage Dreed on CI server. These are `--reporter, -r` and `--output, -o`. The first one specifies format of the output of Dredd so it can be used by CI server or other tool used for evaluation of test results. Dredd currently (27<sup>th</sup> April 2014) supports 5 reporters - junit, nyan, dot, markdown and html. The second mentioned option is used for specification of path to which the reporter should save its output. It is possible to setup more reporter and each reporter can have its own path to save the output.
+
+Another useful option is `--inline-errors, -e` which determines whether some error or failure will be visible at time they occure or at the end of all tests. However this option is useful mostly for local testing and debugging because there is no need to wait for all tests but it can be stopped when error occures.
+
+Option `--details, -d` can be used also for debugging if it is needed to see which details are in request or response. The option affects only passing tests because failed tests shows it always.
+
+It can be useful sometimes to have more information about failed test. FOr this purpose there is the option `--level, -l` which specifies how detailed will be output in console. The default one is "info" however for debugging can be used "debug" level. CI server can use "error" level because there is not usually need of detailed output on the server.
+
+#### Validations
+
+I did not mention a way how Dredd validates expectations and real requests and responses. Apiary created a tool named Gavel[[16](../README.md/#Gavel)] for this purpose.
+
+Gavel undestands well to HTTP and RESTful APIs so it does assertions according to specifications of these technologies. All conditions of assertions are described in the documentation[[16](../README.md/#Gavel)].
+
+The easiest validations are used for status code, headers and text example body. Status code and example body must match exactly to be valid. Headers are a JavaScript object in which expected header key can not be omitted and the value of header must match exactly.
+
+There are also validations for JSON example and for JSON schema[[3](../README.md/#JSONSchema)]. The JSON example validation will not set an error if there are all JSON keys and values matches exactly. Arrays in JSON must match count of items to be at least the same as expected and its values must match exactly. If value is an array of JSON it the rule is used recursively.
+
+The JSON schema validation uses library Amanda[[18](../README.md/#Amanda)] which looks powerful for me. I did not go deep to find all its possibilities because it is out of this thesis but it support most of basic defined in general JSON schema[[3](../README.md/#JSONSchema)].
+
+Based on these knowledge I decide to implement scenario testing for API Blueprint and I wanted to use Dredd as primary testing tool. Next chapter is focused on the process of development of scenario testing and all way I tried.

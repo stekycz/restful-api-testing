@@ -84,10 +84,9 @@ My name is Martin Štekl. Feel free to contact me on [email](mailto:martin.stekl
 		3. [Request and Response](chapters/04-evaluation-of-api-blueprint-and-dredd.md#request-and-response)
 		4. [Models](chapters/04-evaluation-of-api-blueprint-and-dredd.md#models)
 	2. [Dredd testing process](chapters/04-evaluation-of-api-blueprint-and-dredd.md#dredd-testing-process)
-		1. [Configuration](chapters/04-evaluation-of-api-blueprint-and-dredd.md#configuration)
-		2. [Test running](chapters/04-evaluation-of-api-blueprint-and-dredd.md#test-running)
-		3. [CI server integration](chapters/04-evaluation-of-api-blueprint-and-dredd.md#ci-server-integration)
-		4. [JSON schema validation](chapters/04-evaluation-of-api-blueprint-and-dredd.md#json-schema-validation)
+		1. [Test configuration and running](chapters/04-evaluation-of-api-blueprint-and-dredd.md#test-configuration-and-running)
+		2. [CI server integration](chapters/04-evaluation-of-api-blueprint-and-dredd.md#ci-server-integration)
+		3. [Validations](chapters/04-evaluation-of-api-blueprint-and-dredd.md#validations)
 5. [Implementation of scenario testing](chapters/05-implementation-of-scenario-testing.md)
 6. [Conclusion](chapters/06-conclusion.md)
 7. [Bibliography](#bibliography)
@@ -108,6 +107,10 @@ My name is Martin Štekl. Feel free to contact me on [email](mailto:martin.stekl
 - [12]<a name="Runscope"></a>: *Runscope Radar*. (https://www.runscope.com/)
 - [13]<a name="Dredd"></a>: *Dredd*. (https://github.com/apiaryio/dredd)
 - [14]<a name="HTTP"></a>: R. Fielding; J. Gettys; J. Mogul; H. Frystyk; L. Masinter; P. Leach; T. Berners-Lee. *Hypertext Transfer Protocol -- HTTP/1.1*. 1999. (http://www.w3.org/Protocols/rfc2616/rfc2616.html)
+- [15]<a name="DreddHooks"></a>: *Dredd hooks*. 2014. (https://github.com/apiaryio/dredd/wiki/Writing-Hooks)
+- [16]<a name="DreddAllTransHook"></a>: *Dredd ALL transactions hook*. 2014. (https://github.com/apiaryio/dredd/issues/63)
+- [17]<a name="Gavel"></a>: *Gavel*. (https://www.relishapp.com/apiary/gavel/docs)
+- [18]<a name="Amanda"></a>: *Amanda*. (https://github.com/apiaryio/Amanda)
 
 ```
 @todo Find some articles or books about software testing and testing process

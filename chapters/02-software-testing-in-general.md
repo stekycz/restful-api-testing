@@ -175,7 +175,7 @@ _Integration tests_ are a different story. They should tests if all components w
 
 However what is a difference between _integration test_ and _system test_ for RESTful API? I think there does not have to be any. However there should be a difference in complexity of testing as I wrote already in section about _integration tests_ earlier. The difference is that _integration test_ can test if some parameter is used or not. However system test should test if the interface corresponds with documentation and if defined scenarios works correctly.
 
-At the end an _integration test_ for testing usage of some parameter can be created with other tests because there does not have to logic which sends it to real interface but there can be some data provider which just provides data to specific resource. 
+At the end an _integration test_ for testing usage of some parameter can be created with other tests because there does not have to logic which sends it to real interface but there can be some data provider which just provides data to specific resource.
 
 So the difference between regular software testing and RESTful API testing is on _system tests_ level. Other tests can be processed together without any specific tools.
 
