@@ -6,7 +6,7 @@ This chapter describes more details of API Blueprint and Dredd possibilities. A 
 
 API Blueprint is Web API documentation language based on Markdown syntax. The syntax is very simple and it is used for example on GitHub[[5](../README.md/#GitHub)] for writing issues and comments or on Trello[[4](../README.md/#Trello)]. The language is focused on documenting Web service APIs, especially RESTful APIs. It allows writing structured technical documentation and write text description in regular Markdown syntax.
 
-The most important structures are resources and partialy models in my opinion. I will describe its structure and usage in first half of this chapter.
+The most important structures are resources and partialy models in my opinion. I will describe its structure and usage in first half of this chapter. All examples here are can be wrapped because of page width or readability.
 
 #### Resources
 
@@ -14,9 +14,7 @@ Resources are usually designed in logical groups. As you probably know each reso
 
 ```
 # Group
-
 ## Resource [/posts/{id}]
-
 ### Action [GET]
 ```
 
@@ -39,7 +37,8 @@ Each resource could allow same parameters for all its actions. All these paramet
 
 + Parameters
 
-    + fields (string) ... List of post fields to return in response
+    + fields (string) ... List of post fields to return
+                          in response
 ```
 
 #### Request and Response
@@ -59,7 +58,8 @@ Every action consists of a request and its response. I highly recomend to specif
 
 + Parameters
 
-    + fields (string) ... List of post fields to return in response
+    + fields (string) ... List of post fields to return
+                          in response
 
 + Request (application/json)
 + Response 200 (application/json)
@@ -85,7 +85,8 @@ Full example of all mentioned possibilities follows.
 
 + Parameters
 
-    + fields (optional, string) ... List of post fields to return in response
+    + fields (optional, string) ... List of post fields to return
+                                    in response
 
 + Request (application/json)
 + Response 200 (application/json)
@@ -147,7 +148,8 @@ Concept of models is to remove duplicated structures in examples. You can specif
 
 + Parameters
 
-    + fields (optional, string) ... List of post fields to return in response
+    + fields (optional, string) ... List of post fields to return
+                                    in response
 
 + Request (application/json)
 + Response 200 (application/json)
@@ -168,7 +170,7 @@ Concept of models is to remove duplicated structures in examples. You can specif
 
 ### Dredd testing process
 
-The most important thing about Dredd is that it is not tool for testing API but for testing API Blueprint. Talking in testing terminology it is a system testing tool, not intergration testing tool. It was confusing for me at first time but after discussion with team from Apiary it becames clear to me. This is really important information because it changes meaning of testing using Dredd. I will describe Dredd in my new point of view related to differencies with previous confusing understanding.
+The most important thing about Dredd is that it is not tool for testing API but for testing API Blueprint. Talking in testing terminology it is a system testing tool, not intergration testing tool. It was confusing for me at first time but after discussion with team from Apiary it becames clear to me. This is really important information because it changes meaning of testing using Dredd. I will describe Dredd in my new point of view. However I will points to differencies with my previous confusing understanding to explain what Dredd really is.
 
 #### Configuration
 
