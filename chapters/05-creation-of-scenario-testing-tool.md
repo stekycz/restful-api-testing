@@ -61,11 +61,7 @@ I wanted to consider other tools then Cucumber[[6](../README.md/#Cucumber)] so I
 
 ##### Buster.js
 
-This library is able to test server side and also client side. The documentations says it is well extensible and I do not see any reason why I should not beleive it. It is distributed as NPM package so the installation is very simple:
-
-```
-npm install -g buster
-```
+This library is able to test server side and also client side. The documentations says it is well extensible and I do not see any reason why I should not beleive it. It is distributed as NPM package so the installation is very simple.
 
 It was very simple till now. It requires some configuration file which contains some settings of testing environment. I understand thery must be some way to configure testing tool but I do not understand why the configuration file is needed. I would prefer some tool which has some predefined configuration. I just want to install it and use for testing.
 
@@ -128,9 +124,32 @@ I have found very useful string diffs used in Mocha[[26](../README.md/#Mocha)]. 
 
 ##### Cucumber
 
+Cucumber[[6](../README.md/#Cucumber)] is behaviour driven development tool for tests. All these test are written in natural language by so called step definitions. It is feature/scenario based testing tool.
+
+The feature is some functionality which is wanted to be tested. The scenario is then usage of the feature. How it can be assumed there can be many scenarios binded to one feature.
+
+Cucumber is originaly written in Ruby however there is a porated version for almost all often used languages like JavaScript, PHP and Java. So the library itself could be known very well for almost all developers. The version for JavaScript is easily installable using NPM as previous tools.
+
+```
+npm install cucumber
+```
+
+However Cucumber uses Gherkin[[27](../README.md/#Gherkin)] syntax for writing tests. The tests are very simple to write and read however there is need of written step definitions which specifies actions behind for each step in a scenario. It could be painful if you want to use it without any predefined step definitions because it also requires some code in specific programming language.
+
+At the end I decided to use Cucumber[[6](../README.md/#Cucumber)] for RESTful API testing tool because it is the tool designed mainly for _system tests_ in my opinion. I will also write some predefined step definitions so first simple usage does not need to be so painful. I will describe my development progress in the next part.
+
 ###### Advantages
 
+- writing tests in almost natural language
+- tests can be used as tutorial documentation
+- well known over many programming language developers
+- focused on _system tests_
+- relatively simple writing of step definitions
+
 ###### Disadvantages
+
+- relatively verbose tests
+- painful usage without predefined step definitions
 
 ### Implementation of scenario testing tool
 
