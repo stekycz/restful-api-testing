@@ -87,7 +87,12 @@ My name is Martin Štekl. Feel free to contact me on [email](mailto:martin.stekl
 		1. [Test configuration and running](chapters/04-details-about-api-blueprint-and-dredd.md#test-configuration-and-running)
 		2. [CI server integration](chapters/04-details-about-api-blueprint-and-dredd.md#ci-server-integration)
 		3. [Validations](chapters/04-details-about-api-blueprint-and-dredd.md#validations)
-5. [Implementation of scenario testing](chapters/05-implementation-of-scenario-testing.md)
+5. [Creation of scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md)
+	1. [Requirements](chapters/05-creation-of-scenario-testing-tool.md#requirements)
+	2. [Implementation possibilities](chapters/05-creation-of-scenario-testing-tool.md#implementation-possibilities)
+	3. [Implementation of scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md#implementation-of-scenario-testing-tool)
+	4. [Testing of scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md#testing-of-scenario-testing-tool)
+	5. [Examples of usage](chapters/05-creation-of-scenario-testing-tool.md#examples-of-usage)
 6. [Conclusion](chapters/06-conclusion.md)
 7. [Bibliography](#bibliography)
 
