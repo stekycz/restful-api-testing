@@ -1,4 +1,4 @@
-## Evaluation of API Blueprint and Dredd
+## Details about API Blueprint and Dredd
 
 This chapter describes more details of API Blueprint and Dredd possibilities. A lot of these information can be found on the official web or in GitHub repository. However I want to describe it from my point of view.
 
