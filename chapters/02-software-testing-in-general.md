@@ -81,7 +81,7 @@ Tha last categorization of tests, which I describe here, is type of test. I see 
 
 #### Compatibility testing
 
-Testing of system compatibility is actualy _integration test_ at the level of integration of running environment and our application. This type of tests is important mostly during update of system on which the application runs. In case of desktop programm or libraries the target is to test on which running environments the application works.
+Testing of system compatibility is actualy _integration test_ at the level of integration of running environment and our application. This type of tests is mostly important during update of system on which the application runs. In case of desktop programm or libraries the target is to test on which running environments the application works.
 
 _Compatibility test_ can be imagined relatively simple. Let's say we have tests for current version of running environment but we plan update of the environment. There is nothing easier then run written tests in new environment. It can disclose the most trivial error in compatibility. However compatibility depends many times on other parts of the system which could not be covered by automatical tests. It that case it is needed to design _compatibility tests_ on different level. Simple systematic manual testing can be used for basic tests notwithstanding it is not a sofisticated way for testing.
 
@@ -91,7 +91,7 @@ _Sanity tests_ are simple and fast. Their purpose is to test basic correct funct
 
 _Smoke tests_ are very similar in some view. They are fast and tests correct functionality. The difference is they does not test large part of application but they are focused on the most important parts. It also tests error or exceptional states. So if we would like to programm own calculator then _smoke tests_ the computation unit only. _Sanity tests_ should also tests other parts of caluclator for correct functionality (for example visibility of the result on a display) however the computation core would not be tested for error and exceptional cases.
 
-Both these tests are complementary in many properties. I would use them as _unit tests_ mostly and partialy on other levels.
+Both these tests are complementary in many properties. I would mostly use them as _unit tests_ and partialy on other levels.
 
 #### Regression testing
 
@@ -105,7 +105,7 @@ _Destructive tests_ are used for thorough testing of edge cases and conditions. 
 
 #### Performance testing
 
-Testing of performance is very important for many applications. Performance has large impact to good user experience. Performance depends mostly on performance of machine on which it runs, on infrastructure of whole system and not only on the code. Testing of performance cannot be done by simple time messure but there is need of definition of testing conditions and appropriate performance limits. In case of performance of web application we must specify properties of machine on which the tested application would run. Then the testing criterium is amount of requests served during unit of time (second or minute). It can be also a time which tells us how long it takes to serve specified amount of requests.
+Testing of performance is very important for many applications. Performance has large impact to good user experience. Performance mostly depends on performance of machine on which it runs, on infrastructure of whole system and not only on the code. Testing of performance cannot be done by simple time messure but there is need of definition of testing conditions and appropriate performance limits. In case of performance of web application we must specify properties of machine on which the tested application would run. Then the testing criterium is amount of requests served during unit of time (second or minute). It can be also a time which tells us how long it takes to serve specified amount of requests.
 
 The description could look like these tests runs only during _system tests_ or _acceptance tests_. However performance can be also messured during _unit tests_ and _integration tests_. For exmaple the most important part of a calculator is its computation unit. So we could messure performance of this unit independently on the rest of calculator. So if performance test passes for computation unit and fails for whole calculater then there is hight probability that a bottle neck would not be in computation unit. A side advantage can be that they can also suggest us something during investigation of some error or insufficiency.
 

@@ -210,7 +210,7 @@ Most of options are closely binded to CI server of running environment.
 
 There are two most important options for usage Dreed on CI server. These are `--reporter, -r` and `--output, -o`. The first one specifies format of the output of Dredd so it can be used by CI server or other tool used for evaluation of test results. Dredd currently (27<sup>th</sup> April 2014) supports 5 reporters - junit, nyan, dot, markdown and html. The second mentioned option is used for specification of path to which the reporter should save its output. It is possible to setup more reporter and each reporter can have its own path to save the output.
 
-Another useful option is `--inline-errors, -e` which determines whether some error or failure will be visible at time they occure or at the end of all tests. However this option is useful mostly for local testing and debugging because there is no need to wait for all tests but it can be stopped when error occures.
+Another useful option is `--inline-errors, -e` which determines whether some error or failure will be visible at time they occure or at the end of all tests. However this option is mostly useful for local testing and debugging because there is no need to wait for all tests but it can be stopped when error occures.
 
 Option `--details, -d` can be used also for debugging if it is needed to see which details are in request or response. The option affects only passing tests because failed tests shows it always.
 
