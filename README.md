@@ -121,6 +121,8 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [27]<a name="Gherkin"></a>: *Gherkin*. (https://github.com/cucumber/gherkin)
 - [28]<a name="Protagonist"></a>: *Protagonist*. (https://github.com/apiaryio/protagonist)
 - [29]<a name="Node"></a>: *Node.js*. (http://nodejs.org)
+- [30]<a name="express"></a>: *express*. (http://expressjs.com)
+- [31]<a name="nock"></a>: *Nock*. (https://github.com/pgte/nock)
 
 ```
 @todo Find some articles or books about software testing and testing process

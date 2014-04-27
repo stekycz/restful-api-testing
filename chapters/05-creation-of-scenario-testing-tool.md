@@ -414,4 +414,34 @@ That is the last improvement I have done before focusing on writing this text. I
 
 ### Testing of the scenario testing tool
 
+It could look relatively recursive to test testing tool however it is very important. The proof of concept tests were very simple. They were basicly tests written for [[6](../README.md/#Cucumber)] using implemented step definitions and the World. The only unit test tested loading of API Blueprint file. Cucumber tests were run againt to simple implementation using express[[30](../README.md/#express)] framework for Node.js[[29](../README.md/#Node)].
+
+These tests stays in the repository because they are the only way how to test specified step definitions on the level of _integration tests_. It is also very useful as example usage of the testing tool.
+
+However I have also wrote about testing some model classes. I have used Mocha[[26](../README.md/#Mocha)] and Chai[[25](../README.md/#Chai)] tool for these _unit tests_. They really interested me and they are also used for testing Dredd[[13](../README.md/#Dredd)]. So I could look for some inspiration to tests of it.
+
+The most of the testing tool tests are very simple. They tries to do something and asserts if the result is as expected. It is usually if some value has been provided correctly.
+
+Testing of this tool is surprisingly very simple but I have met 2 reltively hard problems.
+
+The first problem was related to asynchronous methods. Mocha supports some contexts of tests which I do not fully understand. I thought I did however asynchronous calling was not so simple. The solution was not so hard. I just needed to define custom success and error callback for each test. Some assertions have been done in these callbacks. The example from API Blueprint file loader follows.
+
+```
+describe 'valid blueprint', () ->
+  success = (ast) ->
+    assert.fail
+    assert.isObject ast
+  error = (msg) ->
+    assert.fail msg, null, 'should not be called'
+
+  it 'will call success callback', () ->
+    load __dirname + '/../fixtures/apiary.apib', success, error
+```
+
+As the code snippet shows there is forced fail if the error callback is called because the test expected success callback to be called only.
+
+The other problem was in the class `RequestProcessor`. The class requires `http` library from Node.js[[29](../README.md/#Node)] which tries to call the endpoint. However there should not be an endpoint for simple _unit tests_. I have thought about some HTTP endpoint mocking tool which I could use. I have found the tool Nock[[31](../README.md/#nock)] which overrides methods in `http` library from Node.js[[29](../README.md/#Node)]. The usage of Nock was not so hard at the end however I spent a lot of time figuring out how it works because there was a problem related to its configuration.
+
+However at the end all tests passes and the code coverage is 97% whcih is amazing in my opinion. I plan to keep so high level of code coverage with future updates and improvements.
+
 ### Examples of usage
