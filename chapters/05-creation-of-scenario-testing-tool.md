@@ -259,13 +259,14 @@ Now is the time to describe some step definitions. However I would like to say t
 The `Given` is used for preparing the World. These step definitions should load needed configuration, process known and tested actions which results are required for the test. I prepared two step definitions of this type which prepares the World for the test. Their code follows.
 
 ```
-this.Given /^API Blueprint in file "([^"]+)"$/, (filepath, callback) ->
-  self = this
-  BlueprintLoader filepath, (ast) ->
-    self.ast = ast
-    callback()
-  , (error) ->
-    callback.fail error
+this.Given /^API Blueprint in file "([^"]+)"$/,
+  (filepath, callback) ->
+    self = this
+    BlueprintLoader filepath, (ast) ->
+      self.ast = ast
+      callback()
+    , (error) ->
+      callback.fail error
 
 this.Given /^base url (.*)$/, (baseUrl, callback) ->
   @baseUrl = url.parse baseUrl
@@ -288,21 +289,27 @@ It is the same syntax which is used in Dredd hooks for actions. I choose it beca
 this.When /^I do action (.*)$/, (action, callback) ->
   @reset()
   structure = action.split /\s*>\s*/
-  callback.fail 'Action path is not complete' if structure.length < 3
+  callback.fail 'Action path is not complete'
+    if structure.length < 3
 
   filteredGroups = @ast.resourceGroups.filter (group) ->
     return group.name == structure[0]
-  callback.fail 'Group "' + structure[0] + '" was not found' if filteredGroups.length < 1
+  callback.fail 'Group "' + structure[0] + '" was not found'
+    if filteredGroups.length < 1
   @structure.group = filteredGroups[0]
 
-  filteredResources = @structure.group.resources.filter (resource) ->
-    return resource.name == structure[1]
-  callback.fail 'Resource "' + structure[1] + '" was not found' if filteredResources.length < 1
+  filteredResources = @structure.group.resources.filter
+    (resource) ->
+      return resource.name == structure[1]
+  callback.fail 'Resource "' + structure[1] + '" was not found'
+    if filteredResources.length < 1
   @structure.resource = filteredResources[0]
 
-  filteredActions = @structure.resource.actions.filter (action) ->
-    return action.name == structure[2]
-  callback.fail 'Action "' + structure[2] + '" was not found' if filteredActions.length < 1
+  filteredActions = @structure.resource.actions.filter
+    (action) ->
+      return action.name == structure[2]
+  callback.fail 'Action "' + structure[2] + '" was not found'
+    if filteredActions.length < 1
   @structure.action = filteredActions[0]
 
   callback()
@@ -313,12 +320,14 @@ At the begining the state of last real response is reset. It is important for ne
 The second `When` step definition sets the request body for choosen action. It also allows to specify content type of the body by exact header value or by some predefined shortcut. The code is very simple and follows.
 
 ```
-this.When /^the request message body is(?: (\w+))?$/, (contentType, body, callback) ->
-  @reset()
-  contentType = @contentTypes[contentType] if @contentTypes[contentType]?
-  @request.headers['content-type'] = contentType
-  @request.body = body
-  callback()
+this.When /^the request message body is(?: (\w+))?$/,
+  (contentType, body, callback) ->
+    @reset()
+    contentType = @contentTypes[contentType]
+      if @contentTypes[contentType]?
+    @request.headers['content-type'] = contentType
+    @request.body = body
+    callback()
 ```
 
 At the begining there is `reset` method as in previous step definition. The reason why it is there too is very simple. Cucumber[[6](../README.md/#Cucumber)] does not require any order of step definitions so they should work independently on each other. So if the body step definition is written before action choosing step definition it should still work.
@@ -328,16 +337,17 @@ The last type of step definitions is `Then`. It is used for expectations for the
 I wrote 2 step definitions of this type for proof of concept version. The first one is used for assertion of the real response status code. The code follows.
 
 ```
-this.Then /It should be ([^()]+)(?: \((\d+)\))?$/, (name, code, callback) ->
-  this.expectedResponse.statusCode = parseInt code
-  self = this
-  @processRequest () ->
-    self.validate () ->
-      callback()
+this.Then /It should be ([^()]+)(?: \((\d+)\))?$/,
+  (name, code, callback) ->
+    this.expectedResponse.statusCode = parseInt code
+    self = this
+    @processRequest () ->
+      self.validate () ->
+        callback()
+      , (msg) ->
+        callback.fail msg
     , (msg) ->
       callback.fail msg
-  , (msg) ->
-    callback.fail msg
 ```
 
 There is setup of expected response status code and then there is run method `processRequest` defined on the World. There is kind of mess in callbacks however if the process fails then the error callback is called. If the request is processed correctly then `validate` method defined on the World is called. And this method also accepts success and error callbacks. At the end if the response status code is as expected then the step definition passed.
@@ -345,10 +355,12 @@ There is setup of expected response status code and then there is run method `pr
 The last step definition I wrote for proof of concept was for assertion of the response body. As same as request body step definition it also support expecting of content type. The code is very similar to the previous step definition so I will make it short.
 
 ```
-this.Then /^the response message body is(?: (\w+))?$/, (contentType, body, callback) ->
-  contentType = this.contentTypes[contentType] if this.contentTypes[contentType]?
-  this.expectedResponse.headers['content-type'] = contentType
-  this.expectedResponse.body = body
+this.Then /^the response message body is(?: (\w+))?$/,
+  (contentType, body, callback) ->
+    contentType = this.contentTypes[contentType]
+      if this.contentTypes[contentType]?
+    this.expectedResponse.headers['content-type'] = contentType
+    this.expectedResponse.body = body
   ...
 ```
 
@@ -396,14 +408,16 @@ The translation table for response status codes is not static but it is dynamica
 One of the most visible improvement was addition of step definition for request and response headers. The implementation was very simple because I have had already prepared model classes. The code of both step definitions follows.
 
 ```
-this.When /^the request message header ([\w-]+) is (.*)$/, (header, value, callback) ->
-  @reset()
-  @getRequest().setHeader header, value
-  callback()
+this.When /^the request message header ([\w-]+) is (.*)$/,
+  (header, value, callback) ->
+    @reset()
+    @getRequest().setHeader header, value
+    callback()
 
-this.Then /^the response message header ([\w-]+) is (.*)$/, (header, value, callback) ->
-  @expectedResponse.setHeader header, value
-  @processRequest callback, callback.fail
+this.Then /^the response message header ([\w-]+) is (.*)$/,
+  (header, value, callback) ->
+    @expectedResponse.setHeader header, value
+    @processRequest callback, callback.fail
 ```
 
 The code shows that the pattern is very similar to both step definitions however there is a difference in the code which is done behind. I have also updated Cucumber[[6](../README.md/#Cucumber)] tests to test these step definitions.
