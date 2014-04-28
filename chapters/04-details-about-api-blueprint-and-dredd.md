@@ -43,7 +43,7 @@ Each resource could allow same parameters for all its actions. All these paramet
 
 #### Request and Response
 
-Every action consists of a request and its response. I highly recomend to specify at least one request and response per action because it is an example in general. You can also specify more requests and responses for each action however you should create a name for the others. The original request/response pair does not need a name. I it is very important to show differencies which depends on the request parameters so it will be visible how `Accept` header changes the response.
+Every action consists of a request and its response. I highly recomend to specify at least one request and response per action as an example. You can also specify more requests and responses for each action however you should create a name for the others. The original request/response pair does not need any name. I it is very important to show the differencies which depends on request parameters so it will be visible how `Accept` header changes the response.
 
 ```
 # Group
@@ -68,7 +68,7 @@ Every action consists of a request and its response. I highly recomend to specif
 + Response 200 (application/xml)
 ```
 
-It is possible to specify a lot of own error responses, response content type dependency on accept header and many other features API specific. Each request or response supports specification of three parts. The first part is reserved for headers (e.g. HTTP headers) which can be defined as simple key value list. Second part is indended for body of the message. You can use it as plain text field or specify a structured body as JSON, XML or other format is used in the API. The last part is called schema and you can specify there a JSON schema[[5](../README.md/#JSONSchema)] for body of the message. The schema is used in Dredd and I will describe it more later in this chapter.
+It is possible to specify a lot of own error responses, response content type dependency on accept header and many other features API specific. Each request or response supports specification of three parts. The first part is reserved for headers (e.g. HTTP headers) which can be defined as simple key value list. Second part is indented for the body of the message. You can use it as plain text field or specify a structured body as JSON, XML or other format is used in the API. The last part is called schema and you can specify a JSON schema[[5](../README.md/#JSONSchema)] for body of the message there. The schema is used in Dredd and I will describe it more later in this chapter.
 
 Full example of all mentioned possibilities follows.
 
