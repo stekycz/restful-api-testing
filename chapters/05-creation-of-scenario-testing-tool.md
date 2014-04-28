@@ -499,8 +499,10 @@ Feature: Machines collection
         And base url http://localhost:3333
 
     Scenario: Create a Machine
-        When I do action Machines > Machines collection > Create a Machine
-        And the request message header Accept is application/json
+        When I do action Machines > Machines collection
+          > Create a Machine
+        And the request message header Accept is
+          application/json
         And the request message body is JSON
         """
         {
@@ -518,8 +520,10 @@ Feature: Machines collection
         """
 
     Scenario: Retrieve all Machines
-        When I do action Machines > Machines collection > Retrieve all Machines
-        And the request message header Accept is application/json
+        When I do action Machines > Machines collection
+          > Retrieve all Machines
+        And the request message header Accept is
+          application/json
         Then It should be Ok
         And the response message header Content-Encoding is none
         And the response message body is JSON
@@ -573,23 +577,27 @@ Feature: Gist creation
     String content
     """
     Then It should be Created (201)
-    And the response message body is application/json valid according to the schema
+    And the response message body is application/json valid
+      according to the schema
     When I do action Gist > Gist collection > Read all Gists
     And parameter id is 1
     Then It should be OK (200)
-    And the response message body is application/json valid according to the schema
+    And the response message body is application/json valid
+      according to the schema
     And the response size of "data" is 1
 
   Scenario: Missing parameter content
     Given I have valid access token
-    When I do action Gist > Gist collection > Create new Gist with the application/json body:
+    When I do action Gist > Gist collection > Create new Gist
+      with the application/json body:
     """
     {
         description: "Description of Gist"
     }
     """
     Then It should be Bad Request (400)
-    And the response message body is application/json valid according to the schema
+    And the response message body is application/json valid
+      according to the schema
     And the response message body is:
     """
     {
@@ -600,14 +608,17 @@ Feature: Gist creation
 
   Scenario: Missing parameter description
     Given I have valid access token
-    When I do action Gist > Gist collection > Create new Gist with the JSON body:
+    When I do action Gist > Gist collection > Create new Gist
+      with the JSON body:
     """
     {
         content: "String content"
     }
     """
     Then It should be Bad Request (400)
-    And the response message body is JSON valid according to the schema
+    And the response message body is JSON valid
+      according to the schema
     And the response value of "status" is "error"
-    And the response value of "message" is "Missing parameter description"
+    And the response value of "message" is "Missing
+      parameter description"
 ```
