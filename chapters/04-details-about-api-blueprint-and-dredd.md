@@ -191,11 +191,13 @@ An example of hooks from GitHub Dredd wiki[[15](../README.md/#DreddHooks)] (curr
 ```
 {before, after} = require 'hooks'
 
-before "Machines > Machines collection > Get Machines", (transaction) ->
-  console.log "before"
+before "Machines > Machines collection > Get Machines",
+  (transaction) ->
+    console.log "before"
 
-after "Machines > Machines collection > Get Machines", (transaction) ->
-  console.log "after"
+after "Machines > Machines collection > Get Machines",
+  (transaction) ->
+    console.log "after"
 ```
 
 Hooks are very useful however there are some limitations now. For example there is no simple way to define one hook for all transactions. There also exists an issue with discussion about it[[16](../README.md/#DreddAllTransHook)]. So the example above shows one hook for transaction "Get Machines".
