@@ -10,4 +10,7 @@ $content = preg_replace('/\[language=(\w+)\]/ui', '{$1}', $content);
 $content = preg_replace('/begin{lstlisting}/ui', 'begin{minted}[frame=lines,framesep=8pt]', $content);
 $content = preg_replace('/end{lstlisting}/ui', 'end{minted}', $content);
 
+$content = preg_replace('/begin{verbatim}/ui', 'begin{lstlisting}', $content);
+$content = preg_replace('/end{verbatim}/ui', 'end{lstlisting}', $content);
+
 echo $content;
