@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep -hEo '[[:upper:]]{3,}' $@ | sort | uniq
