@@ -1,9 +1,7 @@
 .DS_Store
 *.sublime*
-Makefile
 *.tex
 *.pdf
-*.cls
-*.bst
-*.bib
 DP_Stekl_Martin_2014*
+!DP_Stekl_Martin_2014.tex
+!cvut-logo-bw.pdf

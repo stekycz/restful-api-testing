@@ -1,0 +1,125 @@
+% options:
+% thesis=B bachelor's thesis
+% thesis=M master's thesis
+% czech thesis in Czech language
+% english thesis in English language
+% hidelinks remove colour boxes around hyperlinks
+
+\documentclass[thesis=M,english]{FITthesis}[2012/10/20]
+
+% \usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
+% \usepackage[latin2]{inputenc} % LaTeX source encoded as ISO-8859-2
+% \usepackage[cp1250]{inputenc} % LaTeX source encoded as Windows-1250
+
+\usepackage{graphicx} %graphics files inclusion
+% \usepackage{subfig} %subfigures
+% \usepackage{amsmath} %advanced maths
+% \usepackage{amssymb} %additional math symbols
+\usepackage{listings} %source code listing
+\usepackage{minted}
+%\usemintedstyle{trac}
+
+\usepackage{dirtree} %directory tree visualisation
+
+\lstset{
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	escapeinside={\%*}{*)},
+	extendedchars=true,
+	frame=tb,
+	framesep=8pt,
+	keepspaces=true,
+	numbers=none,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	stepnumber=2,
+	tabsize=4,
+	title=\lstname
+}
+
+% % list of acronyms
+% \usepackage[acronym,nonumberlist,toc,numberedsection=autolabel]{glossaries}
+% \iflanguage{czech}{\renewcommand*{\acronymname}{Seznam pou{\v z}it{\' y}ch zkratek}}{}
+% \makeglossaries
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% EDIT THIS
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\department{Department of Software Engineering}
+\title{Testing of RESTful API in context of continuous integration}
+\authorGN{Martin} %author's given name/names
+\authorFN{{\v S}tekl} %author's surname
+\author{Martin {\v S}tekl} %author's name without academic degrees
+\authorWithDegrees{Bc. Martin {\v S}tekl} %author's name with academic degrees
+\supervisor{Ing. Jaroslav Kucha{\v r}}
+\acknowledgements{THANKS}
+\abstractEN{Summarize the contents and contribution of your work in a few sentences in English language.}
+\abstractCS{V n{\v e}kolika v{\v e}t{\' a}ch shr{\v n}te obsah a p{\v r}{\' i}nos t{\' e}to pr{\' a}ce v {\v c}esk{\' e}m jazyce.}
+\placeForDeclarationOfAuthenticity{Prague}
+\keywordsCS{Replace with comma-separated list of keywords in Czech.}
+\keywordsEN{Replace with comma-separated list of keywords in English.}
+\declarationOfAuthenticityOption{4} %select as appropriate, according to the desired license (integer 1-6)
+
+\begin{document}
+
+% \newacronym{CVUT}{{\v C}VUT}{{\v C}esk{\' e} vysok{\' e} u{\v c}en{\' i} technick{\' e} v Praze}
+% \newacronym{FIT}{FIT}{Fakulta informa{\v c}n{\' i}ch technologi{\' i}}
+
+\setsecnumdepth{part}
+\input{chapters/01-introduction.tex}
+
+\setsecnumdepth{all}
+\input{chapters/02-software-testing-in-general.tex}
+
+\input{chapters/03-restful-api-description-and-testing-tools.tex}
+
+\input{chapters/04-details-about-api-blueprint-and-dredd.tex}
+
+\input{chapters/05-creation-of-scenario-testing-tool.tex}
+
+\setsecnumdepth{part}
+\input{chapters/06-conclusion.tex}
+
+\bibliographystyle{iso690}
+\bibliography{library}
+
+\setsecnumdepth{all}
+\appendix
+
+\chapter{Acronyms}
+% \printglossaries
+\begin{description}
+	\item[API] Application Programming Interface
+	\item[AST] Abstract Syntax Tree
+	\item[CI] Continuous Integration
+	\item[GUI] Graphical User Interface
+	\item[JSON] JavaScript Object Notation
+	\item[NPM] Node Package Manager
+	\item[REST] Representational State Transfer
+	\item[TDD] Test Driven Development
+	\item[UI] User Interface
+	\item[XML] Extensible Markup Language
+\end{description}
+
+\chapter{Contents of enclosed CD}
+
+%change appropriately
+
+\begin{figure}
+	\dirtree{%
+		.1 readme.txt\DTcomment{the file with CD contents description}.
+		.1 exe\DTcomment{the directory with executables}.
+		.1 src\DTcomment{the directory of source codes}.
+		.2 wbdcm\DTcomment{implementation sources}.
+		.2 thesis\DTcomment{the directory of \LaTeX{} source codes of the thesis}.
+		.1 text\DTcomment{the thesis text directory}.
+		.2 thesis.pdf\DTcomment{the thesis text in PDF format}.
+		.2 thesis.ps\DTcomment{the thesis text in PS format}.
+	}
+\end{figure}
+
+\end{document}
