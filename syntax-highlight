@@ -1,0 +1,13 @@
+#!/usr/local/bin/php
+<?php
+
+$content = '';
+while($f = fgets(STDIN)){
+	$content .= $f;
+}
+
+$content = preg_replace('/\[language=(\w+)\]/ui', '{$1}', $content);
+$content = preg_replace('/begin{lstlisting}/ui', 'begin{minted}[frame=lines,framesep=8pt]', $content);
+$content = preg_replace('/end{lstlisting}/ui', 'end{minted}', $content);
+
+echo $content;

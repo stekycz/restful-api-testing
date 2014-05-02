@@ -176,7 +176,7 @@ The most important thing about Dredd is that it is not tool for testing API but 
 
 Dredd support running from CLI only now. I think it is not problem because I want to run it on CI server which also uses CLI to run tests. The mask of command is following.
 
-```
+```bash
 dredd <path to blueprint> <api_endpoint> [OPTIONS]
 ```
 
@@ -188,7 +188,7 @@ Dredd also supports hooks written in JavaScript or CofeeScript. These hooks can 
 
 An example of hooks from GitHub Dredd wiki[[15](../README.md/#DreddHooks)] (current to 27<sup>th</sup> April 2014).
 
-```
+```coffeescript
 {before, after} = require 'hooks'
 
 before "Machines > Machines collection > Get Machines",

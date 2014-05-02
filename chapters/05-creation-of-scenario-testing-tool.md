@@ -130,7 +130,7 @@ The feature is some functionality which is wanted to be tested. The scenario is 
 
 Cucumber is originaly written in Ruby however there is a porated version for almost all often used languages like JavaScript, PHP and Java. So the library itself could be known very well for almost all developers. The version for JavaScript is easily installable using NPM as previous tools.
 
-```
+```bash
 npm install cucumber
 ```
 
@@ -163,7 +163,7 @@ The main advantage of the new testing tool should be loading of defined RESTful 
 
 The code is very simple. At first I require `fs` library from Node.js[[29](../README.md/#Node)] and also Protagonist.
 
-```
+```coffeescript
 fs = require 'fs'
 protagonist = require 'protagonist'
 ```
@@ -174,7 +174,7 @@ The first call in the function is loading of API Blueprint file content. It uses
 
 If loading does not fail it passes loaded content to Protagoist parse method. If everything goes well then loaded AST is passed to success callback. Otherwise it passes protagnist error to error callback.
 
-```
+```coffeescript
 load = (blueprintPath, success, error) ->
   fs.readFile blueprintPath, 'utf8', (parseError, data) ->
     return error(parseError) if parseError
@@ -185,7 +185,7 @@ load = (blueprintPath, success, error) ->
 
 The loading code ends with exporting loading function from the loading module.
 
-```
+```coffeescript
 module.exports = load
 ```
 
@@ -199,7 +199,7 @@ The World also contains 3 methods. The simpliest is `reset` and it is used for e
 
 The second method is used for request processing. It sanitize request configured in step definitions and then it is send to the endpoint. There is used Node.js[[29](../README.md/#Node)] library `http` for HTTP communication. The sending code follows.
 
-```
+```coffeescript
 req = http.request options, handleRequest
 req.write self.request.body if self.request.body != ''
 req.end()
@@ -211,7 +211,7 @@ The callback accepts response object in its argument. It prepartes some event ca
 
 The `callback` call at the end is required by Cucumber[[6](../README.md/#Cucumber)] for correct continue in testing.
 
-```
+```coffeescript
 buffer = ''
 self = this
 handleRequest = (res) ->
@@ -231,7 +231,7 @@ handleRequest = (res) ->
 
 The last method in the World is `validate`. It uses Gavel[[17](../README.md/#Gavel) for validation of the last real response. There is no magic instead of processing possible errors for the output. However the code follows.
 
-```
+```coffeescript
 validate: (callback, errorCallback) ->
   real = @response
   expected = @expectedResponse
@@ -258,7 +258,7 @@ Now is the time to describe some step definitions. However I would like to say t
 
 The `Given` is used for preparing the World. These step definitions should load needed configuration, process known and tested actions which results are required for the test. I prepared two step definitions of this type which prepares the World for the test. Their code follows.
 
-```
+```coffeescript
 this.Given /^API Blueprint in file "([^"]+)"$/,
   (filepath, callback) ->
     self = this
@@ -285,7 +285,7 @@ Group > Resource > Action
 
 It is the same syntax which is used in Dredd hooks for actions. I choose it because it would be too complicated to try finding an action just by its name in proof of concept. The following code shows finding of the action in API Blueprint AST.
 
-```
+```coffeescript
 this.When /^I do action (.*)$/, (action, callback) ->
   @reset()
   structure = action.split /\s*>\s*/
@@ -319,7 +319,7 @@ At the begining the state of last real response is reset. It is important for ne
 
 The second `When` step definition sets the request body for choosen action. It also allows to specify content type of the body by exact header value or by some predefined shortcut. The code is very simple and follows.
 
-```
+```coffeescript
 this.When /^the request message body is(?: (\w+))?$/,
   (contentType, body, callback) ->
     @reset()
@@ -336,7 +336,7 @@ The last type of step definitions is `Then`. It is used for expectations for the
 
 I wrote 2 step definitions of this type for proof of concept version. The first one is used for assertion of the real response status code. The code follows.
 
-```
+```coffeescript
 this.Then /It should be ([^()]+)(?: \((\d+)\))?$/,
   (name, code, callback) ->
     this.expectedResponse.statusCode = parseInt code
@@ -354,7 +354,7 @@ There is setup of expected response status code and then there is run method `pr
 
 The last step definition I wrote for proof of concept was for assertion of the response body. As same as request body step definition it also support expecting of content type. The code is very similar to the previous step definition so I will make it short.
 
-```
+```coffeescript
 this.Then /^the response message body is(?: (\w+))?$/,
   (contentType, body, callback) ->
     contentType = this.contentTypes[contentType]
@@ -380,7 +380,7 @@ The last class is `ResponseValidator` which uses Gavel[[17](../README.md/#Gavel)
 
 The next logic I have set aside is translation of content type shortcuts to values for HTTP headers. Currently there is only JSON and XML. However there is no reason why there should not be any other. The code is also very simple.
 
-```
+```coffeescript
 contentTypes =
   json: 'application/json'
   xml: 'application/xml'
@@ -407,7 +407,7 @@ The translation table for response status codes is not static but it is dynamica
 
 One of the most visible improvement was addition of step definition for request and response headers. The implementation was very simple because I have had already prepared model classes. The code of both step definitions follows.
 
-```
+```coffeescript
 this.When /^the request message header ([\w-]+) is (.*)$/,
   (header, value, callback) ->
     @reset()
@@ -440,7 +440,7 @@ Testing of this tool is surprisingly very simple but I have met 2 reltively hard
 
 The first problem was related to asynchronous methods. Mocha supports some contexts of tests which I do not fully understand. I thought I did however asynchronous calling was not so simple. The solution was not so hard. I just needed to define custom success and error callback for each test. Some assertions have been done in these callbacks. The example from API Blueprint file loader follows.
 
-```
+```coffeescript
 describe 'valid blueprint', () ->
   success = (ast) ->
     assert.fail
@@ -462,13 +462,13 @@ However at the end all tests passes and the code coverage is 97% whcih is amazin
 
 At the end of implementation I would like to show some examples how to use the created tool. The easiest way how to start is installation of Cucumber[[6](../README.md/#Cucumber)].
 
-```
+```bash
 npm install cucumber
 ```
 
 Or it can be also installed globaly.
 
-```
+```bash
 npm install -g cucumber
 ```
 
@@ -476,19 +476,19 @@ I will assume that the testing tool is already installed.
 
 The next important step is to create directory for features. It should be placed in the root of a project because of easier usage. The name of direcotry is `features`.
 
-```
+```bash
 mkdir features
 ```
 
 Then it is possible to create first feature test.
 
-```
+```bash
 $EDITOR feature/example.feature
 ```
 
 Following code is the same as in tests for the testing tool.
 
-```
+```gherkin
 Feature: Machines collection
     As an anonymous user
     I want to be able to access machine collection
@@ -540,7 +540,7 @@ I did not mention the Background section in the Gherkin[[27](../README.md/#Gherk
 
 There is a feature test which contains two scenarios now. So it can be run.
 
-```
+```bash
 cucumber.js -r ./path/to/step-definitions.coffee
 ```
 
@@ -550,7 +550,7 @@ However it can be also passed in different way. Cucumber[[6](../README.md/#Cucum
 
 The output of the command above would be following on sucess.
 
-```
+```bash
 ...............
 
 2 scenarios (2 passed)
@@ -561,7 +561,7 @@ However there can be used some of other reportes which Cucumber[[6](../README.md
 
 At the point of release the first public version I would like to be able to process following Gherkin[[27](../README.md/#Gherkin)] file. It shows some features which are not currently supported but which I want to implement.
 
-```
+```gherkin
 Feature: Gist creation
 
   Background:
