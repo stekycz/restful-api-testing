@@ -123,13 +123,11 @@ I hear about so called _TDD_ (test driven development) a few last years. It mean
 
 Independently on how tests works it is important to run them repeatedly to validate cerrectness of the application. Tests can be run on a local machine but in case of more tests or more complicated tests there might be needed more performance or time because tests could steal whole performance of a machine so the work cannot continue. It is good to automatize these tests on some external machine which has enough performance. Running tests on external machines during development process is main topic of this thesis and it is called _continuous integration_.
 
-```
-@todo Create diagram of development process with highligted part of testing process
-```
+![An example of development process](./img/development-process.png "An example of development process")
 
-```
-@todo Create some diagrams of different testing processes
-```
+![Trivial testing process](./img/testing-process-1.png "Trivial testing process")
+
+![Simple testing process](./img/testing-process-2.png "Simple testing process")
 
 #### Continuous integration
 
@@ -145,9 +143,9 @@ Next step is testung itself. It is the most important step in my opinion. This s
 
 When all tests passes then it can be automatically deployed to testing server in case of web or server application. Teoretically it is possible to automatically create new version of the product and publish the update. However I think there should be always a manual step which can prevent release of incomplete version.
 
-```
-@todo Create diagram of continuous integration process
-```
+![Continuous integration process](./img/testing-process-3.png "Continuous integration process")
+
+![Complex continuous integration process](./img/testing-process-4.png "Complex continuous integration process")
 
 This process can be hihly specific project by project. The buggest difference can be running of the process. It is good to run the build of large applications (or if the build runs very long) once per day for example. If the build is fast (units of minutes) it can be run for each commit in the repository. If the repository uses branches then it is possible to configure which branches will be tested and which not. However the process must be run after merge of a branche to master branch every time without any side conditions.
 
