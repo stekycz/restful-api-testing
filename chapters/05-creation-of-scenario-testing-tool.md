@@ -157,6 +157,16 @@ At the end I decided to use Cucumber[[6](../README.md/#Cucumber)] for RESTful AP
 - relatively verbose tests
 - painful usage without predefined step definitions
 
+##### Summary of tools comparison
+
+Tool name | Simplicity | Scenarios support | Popularity | Total
+--------- |:----------:|:-----------------:|:----------:|:-----:
+**Buster.js** | 2 | 3 | 3 | **3**
+**Jasmine** | 2 | 3 | 3 | **3**
+**Mocha and Chai** | 2 | 3 | 1 | **2**
+**Cucumber** | 2 | 1 | 2 | **2**
+[Summarizing table of tools comparison][table-js-testing-tools-comparison]
+
 ### Implementation of proof of concept for scenario testing tool using Cucumber
 
 At the begining of development I wanted to create a proof of concept. It ment for me the proof that I choose well the testing tool which I want to extend. In this context it means if Cucumber[[6](../README.md/#Cucumber)] can be used for testing RESTful API.
