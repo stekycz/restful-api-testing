@@ -6,7 +6,7 @@ These information would be used in the next chapter where I will focus on some i
 
 ### API Blueprint sytax basics
 
-API Blueprint[[36](../README.md/#APIBlueprint)] is Web API documentation language based on Markdown syntax. The syntax is very simple and it is used for example on GitHub[[5](../README.md/#GitHub)] for writing issues and comments or on Trello[[4](../README.md/#Trello)]. The language is focused on documenting Web service APIs, especially _RESTful API_s. It allows writing structured technical documentation and write text description in regular Markdown syntax.
+API Blueprint[[36](../README.md/#APIBlueprint)] is Web API documentation language based on Markdown syntax. The syntax[[2](../README.md/#APIBlueprintSpecification)] is very simple and it is used for example on GitHub[[5](../README.md/#GitHub)] for writing issues and comments or on Trello[[4](../README.md/#Trello)]. The language is focused on documenting Web service APIs, especially _RESTful API_s. It allows writing structured technical documentation and write text description in regular Markdown syntax.
 
 The most important structures are resources and partialy models in my opinion. I will describe its structure and usage in first half of this chapter. All examples here can be wrapped because of page width or readability.
 
