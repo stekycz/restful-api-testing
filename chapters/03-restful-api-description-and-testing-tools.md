@@ -104,6 +104,19 @@ Next group of tools I would use for RESTful API prototyping. These are Postman a
 
 The largest group contains the rest of tools. Those are REST-assured, frisby.js, Runscope Radar and Dredd. These tools are purly focused on testing of RESTful API. REST-assured and frisby.js are very similar. The first is written in Java and the second in JavaScript. However REST-assured is more powerful because it supports better configuration of requests then frisby.js. Runscope Radar is simple click and go tool specialized for testing. However its tests are run on public endpoint what would be unwanted by many companies. The last tool is Dredd focused on testing specified contract (an interface) for RESTful API. It does not test any scenario. Scenarios are supported by REST-assured and frisby.js because you have code of test under your own control.
 
+The following table sumarizes comparison above for each tool. Lower number is better and higher number is worst. 
+
+Tool name | Description | Testing | CI integration | Total
+--------- |:-----------:|:-------:|:--------------:|:-----:
+**SOAP UI** | 3 | 2 | 3 | **3**
+**REST-assured** | 5 | 1 | 2 | **3**
+**Postman** | 3 | 2 | 5 | **4**
+**frisby.js** | 5 | 4 | 2 | **4**
+**RAML** | 1 | 4 | 5 | **4**
+**Runscope Radar** | 3 | 3 | 5 | **3**
+**Dredd** | 1 | 3 | 2 | **2**
+[Summarizing table of tools comparison][table-tools-comparison]
+
 At the end I think the most univarsal tool is Dredd using API Blueprint now. The reason why I think so is that these tools are very well combined together. API Blueprint is used for description and can be published on Apiary website which generates simple documentation. The documentation also supports prototyping and development proxies to keep development of server and client separated. Some other tools are more powerful in some special cases but Dredd and API Blueprint is on a good way to support them also in my opinion. Their strengths are hardly to reach by other tools but technical improvements are easier I think.
 
 Next chapter focuses more on API Blueprint syntax and its possibilities and also on Dredd and its behavior.
