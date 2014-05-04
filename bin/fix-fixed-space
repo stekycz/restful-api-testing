@@ -1,0 +1,12 @@
+#!/usr/local/bin/php
+<?php
+
+$content = '';
+while($f = fgets(STDIN)){
+	$content .= $f;
+}
+
+$content = preg_replace('/ (a|an|the) /ui', ' $1~', $content);
+$content = preg_replace('/ (in|for|at|on) /ui', ' $1~', $content);
+
+echo $content;

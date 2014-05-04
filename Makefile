@@ -13,7 +13,7 @@ $(OUTPUT): $(OBJECTS)
 	for i in 1 2 3; do pdflatex -shell-escape $(INPUT); done
 
 %.tex: %.md
-	$(CC) $(CFLAGS) $< | ./bin/syntax-highlight | ./bin/fix-czech-chars > $@
+	$(CC) $(CFLAGS) $< | ./bin/syntax-highlight | ./bin/fix-czech-chars | ./bin/fix-fixed-space > $@
 
 clean:
 	mv $(INPUT) $(FILENAME)_tmp.tex
