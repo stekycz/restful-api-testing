@@ -475,3 +475,67 @@ As the code snippet shows there is forced fail if the error callback is called b
 The other problem was in the class `RequestProcessor`. The class requires `http` library from Node.js[[29](../README.md/#Node)] which tries to call the endpoint. However there should not be an endpoint for simple _unit tests_. I have thought about some HTTP endpoint mocking tool which I could use. I have found the tool Nock[[31](../README.md/#nock)] which overrides methods in `http` library from Node.js[[29](../README.md/#Node)]. The usage of Nock was not so hard at the end however I spent a lot of time figuring out how it works because there was a problem related to its configuration.
 
 However at the end all tests passes and the code coverage is 97% whcih is amazing in my opinion. I plan to keep so high level of code coverage with future updates and improvements.
+
+The tool is not completed in my opinion. There are some feature which should be implemented soon. At the point of release the first public version I would like to be able to process following Gherkin[[27](../README.md/#Gherkin)] file. It shows some features which are not currently supported but which I want to implement.
+
+```gherkin
+Feature: Gist creation
+
+  Background:
+    Given API Blueprint in file "../api-definition.apib"
+    And base url http://localhost:8080
+
+  Scenario: Correct creation
+    Given I have valid access token
+    When I do action Gist > Gist collection > Create new Gist
+    And parameter description is "Description of Gist"
+    And parameter content is:
+    """
+    String content
+    """
+    Then It should be Created (201)
+    And the response message body is application/json valid
+      according to the schema
+    When I do action Gist > Gist collection > Read all Gists
+    And parameter id is 1
+    Then It should be OK (200)
+    And the response message body is application/json valid
+      according to the schema
+    And the response size of "data" is 1
+
+  Scenario: Missing parameter content
+    Given I have valid access token
+    When I do action Gist > Gist collection > Create new Gist
+      with the application/json body:
+    """
+    {
+        description: "Description of Gist"
+    }
+    """
+    Then It should be Bad Request (400)
+    And the response message body is application/json valid
+      according to the schema
+    And the response message body is:
+    """
+    {
+        status: "error",
+        message: "Missing parameter content"
+    }
+    """
+
+  Scenario: Missing parameter description
+    Given I have valid access token
+    When I do action Gist > Gist collection > Create new Gist
+      with the JSON body:
+    """
+    {
+        content: "String content"
+    }
+    """
+    Then It should be Bad Request (400)
+    And the response message body is JSON valid
+      according to the schema
+    And the response value of "status" is "error"
+    And the response value of "message" is "Missing
+      parameter description"
+```
