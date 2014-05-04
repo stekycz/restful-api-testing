@@ -1,6 +1,6 @@
 ## Software testing in general
 
-I think it is good to remember basics of software testing before focusing on testing of _RESTful API_. It is a~part of software development process which is really important. However it is relatively often forgotten or it stays aside. If developing software is tested then it is good to have some overview of possibilities of testing. I will describe these possibilities in this chapter. Following chapters will assume knowledge of terms and relations mentioned here.
+I think it is good to remind basics of software testing before focusing on testing of _RESTful API_. It is a~part of software development process which is really important. However it is relatively often forgotten or it stays aside. If developing software is tested then it is good to have some overview of possibilities of testing. I will describe these possibilities in this chapter. Following chapters will assume knowledge of terms and relations mentioned here.
 
 I will focus on three tests classifications. It is good to know that one specific test or group of tests can be classified in more then one group and some test parameters can be combined almost arbitrarily.
 

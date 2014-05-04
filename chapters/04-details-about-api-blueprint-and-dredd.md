@@ -172,7 +172,7 @@ Concept of models is to remove duplicated structures in examples. You can specif
 
 ### Dredd testing process
 
-The most important thing about Dredd[[13](../README.md/#Dredd)] is that it is not tool for testing API but for testing API Blueprint[[36](../README.md/#APIBlueprint)]. So it does not test any functionality, side effects or scenarios. The~primary target of this testing tool is to validate implemented API againt to API Blueprint. It was confusing for me at first time but after discussion with team from Apiary it becames clear to me. This is really important information because it changes meaning of testing using Dredd. I will describe Dredd in my new point of view. However I will points to differences with my previous confusing understanding to explain what Dredd really is.
+The most important thing about Dredd[[13](../README.md/#Dredd)] is that it is not tool for testing API but for testing API Blueprint[[36](../README.md/#APIBlueprint)]. So it does not test any functionality, side effects or scenarios. The~primary target of this testing tool is to validate implemented API againt to API Blueprint. It was confusing for me at first time but after discussion with team from Apiary[[20](../README.md/#Apiary)] it becames clear to me. This is really important information because it changes meaning of testing using Dredd. I will describe Dredd in my new point of view. However I will points to differences with my previous confusing understanding to explain what Dredd really is.
 
 #### Test configuration and running
 

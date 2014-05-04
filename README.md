@@ -128,6 +128,8 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [34]<a name="GoogleCode"></a>: *Google Code*. (https://code.google.com)
 - [35]<a name="jUnit"></a>: *jUnit*. (http://junit.org)
 - [36]<a name="APIBlueprint"></a>: *API Blueprint*. (http://apiblueprint.org)
+- [37]<a name="Cucumber4APIBlueprint"></a>: M. Štekl. *Cucumber 4 API Blueprint*. 2014. (https://github.com/stekycz/cucumber-4-api-blueprint)
+- [38]<a name="MITlicense"></a>: *MIT license*. (http://opensource.org/licenses/MIT)
 
 ```
 @todo Find some articles or books about software testing and testing process
