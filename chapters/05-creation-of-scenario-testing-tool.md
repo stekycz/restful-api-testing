@@ -59,6 +59,10 @@ At the end of visit in Apiary we concluded that extension of Dredd is not wanted
 
 I wanted to consider other tools then Cucumber[[6](../README.md/#Cucumber)] so I did some research around regular JavaScript testing frameworks. One possibility was frisby.js which I have described earlier however I think there would be too much changes to make it work with API Blueprint.
 
+It can be confusing why I describe another set of testing tool here because I have described some RESTful API testing tools in one of previous chapters. There is important difference. The first set mentioned in second chapter contains tools which are already focused on API description or testing somehow. I have decide to use API Blueprint and Dredd as the best candidate to improve its testing possibilities. I consider now which JavaScript tool is the best candidate for writing scenario testing using API Blueprint. Dredd can be good candidate because it already supports API Blueprint. However it should test the contract only how I already wrote. So I want to consider some other tools if they would not be better solution for implementation of scenario testing using API Blueprint.
+
+There could be also a question why I consider JavaScript libraries only. Dredd is already written for JavaScript and related libraries too. I would like to use as many as possible original libraries to simplify implementation of scenario testing. I also started being more interested into this technology lately.
+
 ##### Buster.js
 
 This library is able to test server side and also client side. The documentations says it is well extensible and I do not see any reason why I should not beleive it. It is distributed as NPM package so the installation is very simple.
