@@ -110,7 +110,7 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [16]<a name="DreddAllTransHook"></a>: *Dredd ALL transactions hook*. 2014. (https://github.com/apiaryio/dredd/issues/63)
 - [17]<a name="Gavel"></a>: *Gavel*. (https://www.relishapp.com/apiary/gavel/docs)
 - [18]<a name="Amanda"></a>: *Amanda*. (https://github.com/apiaryio/Amanda)
-- [19]<a name="CoffeeScript"></a>: *http://coffeescript.org/*. (http://coffeescript.org)
+- [19]<a name="CoffeeScript"></a>: *CoffeeScript*. (http://coffeescript.org)
 - [20]<a name="Apiary"></a>: *Apiary*. (http://apiary.io)
 - [21]<a name="Selenium"></a>: *Selenium*. (http://docs.seleniumhq.org)
 - [22]<a name="balanced-api"></a>: *Balanced API*. (https://github.com/balanced/balanced-api)
@@ -127,6 +127,7 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [33]<a name="NPM"></a>: *NPM*. (https://www.npmjs.org)
 - [34]<a name="GoogleCode"></a>: *Google Code*. (https://code.google.com)
 - [35]<a name="jUnit"></a>: *jUnit*. (http://junit.org)
+- [36]<a name="APIBlueprint"></a>: *API Blueprint*. (http://apiblueprint.org)
 
 ```
 @todo Find some articles or books about software testing and testing process
