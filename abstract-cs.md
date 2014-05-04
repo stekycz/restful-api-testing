@@ -1,0 +1,1 @@
+Hlavním tématem této práce je testování _RESTful API_. Zaměřuje se na současné možnosti a řešení a následně sumarizuje tyto znalosti. Druhá část je za měřena na vývoj nástroje pro scenářové testování _RESTful API_. Výstupem této práce je samotná sumarizace znalostí o testování _RESTful API_ a testovací nástroj vyvinutý ve druhé části této práce.

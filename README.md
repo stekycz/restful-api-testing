@@ -2,8 +2,8 @@
 
 - [Description](#description)
 - [Requirements](#requirements)
-- [Abstract](#abstract)
-- [Abstrakt](#abstrakt)
+- [Abstract EN](abstract-en.md)
+- [Abstract CS](abstract-cs.md)
 - [Table of Content](#table-of-content)
 - [Bibliography and References](#bibliography-and-references)
 
@@ -22,18 +22,6 @@ Study the basics of testing, different methods, levels and types of testing, pro
 Study the syntax of the [API Blueprint](https://github.com/apiaryio/api-blueprint) language for describing RESTful API and study testing tool [Dredd](https://github.com/apiaryio/Dredd). Compare current testing possibilities using this tool to previously described methods and then propose possible changes and modifications to extend the capabilities of this tool.
 
 Choose some of the proposed modifications and implement them. Propose implemented changes as Pull Requests on server [GitHub](https://github.com/) for merge in main repositories of this tool.
-
-## Abstract
-
-```
-@todo This will be written at the end
-```
-
-## Abstrakt
-
-```
-@todo This will be written at the end
-```
 
 ## Table of Content
 

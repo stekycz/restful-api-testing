@@ -1,0 +1,45 @@
+#!/usr/local/bin/php
+<?php
+
+$content = '';
+while($f = fgets(STDIN)){
+	$content .= $f;
+}
+
+$mapping = array(
+	"ě" => "{\\v e}",
+	"š" => "{\\v s}",
+	"č" => "{\\v c}",
+	"ř" => "{\\v r}",
+	"ž" => "{\\v z}",
+	"ý" => "{\' y}",
+	"á" => "{\' a}",
+	"í" => "{\' i}",
+	"é" => "{\' e}",
+	"ú" => "{\' u}",
+	"ů" => "{\o u}",
+	"ó" => "{\' o}",
+	"ď" => "{\' d}",
+	"ť" => "{\' t}",
+	"Ě" => "{\\v E}",
+	"Š" => "{\\v S}",
+	"Č" => "{\\v C}",
+	"Ř" => "{\\v R}",
+	"Ž" => "{\\v Z}",
+	"Ý" => "{\' Y}",
+	"Á" => "{\' A}",
+	"Í" => "{\' I}",
+	"É" => "{\' E}",
+	"Ú" => "{\' U}",
+	"Ů" => "{\o U}",
+	"Ó" => "{\' O}",
+	"Ď" => "{\' D}",
+	"Ť" => "{\' T}",
+);
+
+$needles = array_keys($mapping);
+$replacements = array_values($mapping);
+
+$content = str_replace($needles, $replacements, $content);
+
+echo $content;
