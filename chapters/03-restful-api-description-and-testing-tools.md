@@ -117,7 +117,7 @@ Tool name | Description | Testing | CI integration | Total
 **RAML** | 1 | 4 | 5 | **4**
 **Runscope Radar** | 3 | 3 | 5 | **3**
 **Dredd** | 1 | 3 | 2 | **2**
-[Summarizing table of tools comparison][table-restful-api-testing-tools-comparison]
+[Summarizing table of RESTful API testing tools comparison][table-restful-api-testing-tools-comparison]
 
 At the~end I think the~most univarsal tool is Dredd[[13](../README.md/#Dredd)] using API Blueprint[[36](../README.md/#APIBlueprint)] now. The~reason why I think so is that these tools are very well combined together. API Blueprint is used for description and can be published on Apiary[[20](../README.md/#Apiary)] website which generates simple documentation. The~documentation also supports prototyping and development proxies to keep development of server and client separated. Some other tools are more powerful in some special cases but Dredd and API Blueprint is on a~good way to support them too in my opinion. Their strengths are hardly to reach by other tools but technical improvements are easier in my opinion.
 

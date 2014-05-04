@@ -168,7 +168,7 @@ Tool name | Simplicity | Scenarios support | Popularity | Total
 **Jasmine** | 3 | 3 | 3 | **3**
 **Mocha and Chai** | 3 | 3 | 1 | **2**
 **Cucumber** | 2 | 1 | 2 | **2**
-[Summarizing table of tools comparison][table-js-testing-tools-comparison]
+[Summarizing table of JavaScript testing tools comparison][table-js-testing-tools-comparison]
 
 ### Implementation of proof of concept for scenario testing tool using Cucumber
 
