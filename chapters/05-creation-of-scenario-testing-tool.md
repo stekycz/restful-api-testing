@@ -63,6 +63,8 @@ It can be confusing why I describe another set of testing tool here because I ha
 
 There could be also a question why I consider JavaScript libraries only. Dredd is already written for JavaScript and related libraries too. I would like to use as many as possible original libraries to simplify implementation of scenario testing. I also started being more interested into this technology lately.
 
+At the end this comparison can also be useful for me. I will definitely test the result of implementation. So I will probably use one of these tools as well. This comparison can help me to make good decision.
+
 ##### Buster.js
 
 This library is able to test server side and also client side. The documentations says it is well extensible and I do not see any reason why I should not beleive it. It is distributed as NPM package so the installation is very simple.
