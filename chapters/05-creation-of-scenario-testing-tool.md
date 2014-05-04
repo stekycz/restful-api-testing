@@ -159,11 +159,13 @@ At the end I decided to use Cucumber[[6](../README.md/#Cucumber)] for RESTful AP
 
 ##### Summary of tools comparison
 
+The following table sumarizes comparison above for each tool. Lower number is better and higher number is worst. Popularity is taken from downloads count on NPM[[33](../README.md/#NPM)] server.
+
 Tool name | Simplicity | Scenarios support | Popularity | Total
 --------- |:----------:|:-----------------:|:----------:|:-----:
-**Buster.js** | 2 | 3 | 3 | **3**
-**Jasmine** | 2 | 3 | 3 | **3**
-**Mocha and Chai** | 2 | 3 | 1 | **2**
+**Buster.js** | 3 | 3 | 3 | **3**
+**Jasmine** | 3 | 3 | 3 | **3**
+**Mocha and Chai** | 3 | 3 | 1 | **2**
 **Cucumber** | 2 | 1 | 2 | **2**
 [Summarizing table of tools comparison][table-js-testing-tools-comparison]
 
