@@ -86,9 +86,9 @@ Choose some of the proposed modifications and implement them. Propose implemente
 	3. [Implementation of proof of concept for scenario testing tool using Cucumber](chapters/05-creation-of-scenario-testing-tool.md#implementation-of-proof-of-concept-for-scenario-testing-tool-using-Cucumber)
 	4. [Improvements and refactoring of the scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md#improvements-and-refactoring-of-the-scenario-testing-tool)
 	5. [Testing of scenario testing tool](chapters/05-creation-of-scenario-testing-tool.md#testing-of-scenario-testing-tool)
-	6. [Examples of usage](chapters/05-creation-of-scenario-testing-tool.md#examples-of-usage)
 6. [Conclusion](chapters/06-conclusion.md)
-7. [Bibliography](#bibliography)
+7. [Installation and an example of usage](chapters/A-installation-and-usage.md)
+8. [Bibliography](#bibliography)
 
 ## Bibliography and References
 
