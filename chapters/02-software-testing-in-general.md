@@ -163,7 +163,7 @@ If I consider _RESTful API_ as just another interface then it should be testable
 
 On the other side _RESTful API_ is not as simle as regular interface. The data which are provided by _RESTful API_ are loaded from some storage and transformed on server to the ouput. Is not it familiar? It sounds to me like regular web UI. The only difference here is similicity of communication for the end user and the format of received data. I usually do not test edge cases for regular web because it should be done by other tests which are focused on functionality.
 
-I could think that _RESTful API_ is same as regular web UI. However I do not think so because _RESTful API_ is still specific. What is important in my opinion is level of view for these tests. They should test edge cases specific for HTTP protocol used by _RESTful API_ because it is a part of it. However it should not test various values which affect behavior on the server and not the protocol itself.
+I could think that _RESTful API_ is same as regular web UI. However I do not think so because _RESTful API_ is still specific. What is important in my opinion is level of view for these tests. They should test edge cases specific for HTTP protocol[[14](../README.md/#HTTP)] used by _RESTful API_ because it is a part of it. However it should not test various values which affect behavior on the server and not the protocol itself.
 
 When I mention a level of test then there is a question to which levels can be testing of _RESTful API_ categorized. Could it be tested on _system test_ level? I am sure it should because _system tests_ should test everything if possible. What about _integration tests_ or _unit tests_? Can be _RESTful API_ tested on these levels?
 
