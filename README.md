@@ -125,6 +125,8 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [31]<a name="nock"></a>: *Nock*. (https://github.com/pgte/nock)
 - [32]<a name="RFC3986"></a>: T. Berners-Lee; R. Fielding; L. Masinter. *Uniform Resource Identifier (URI): Generic Syntax*. 2005. (http://www.ietf.org/rfc/rfc3986.txt)
 - [33]<a name="NPM"></a>: *NPM*. (https://www.npmjs.org)
+- [34]<a name="GoogleCode"></a>: *Google Code*. (https://code.google.com)
+- [35]<a name="jUnit"></a>: *jUnit*. (http://junit.org)
 
 ```
 @todo Find some articles or books about software testing and testing process
