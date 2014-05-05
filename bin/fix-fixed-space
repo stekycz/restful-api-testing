@@ -7,6 +7,9 @@ while($f = fgets(STDIN)){
 }
 
 $content = preg_replace('/ (a|an|the) /ui', ' $1~', $content);
-$content = preg_replace('/ (in|for|at|on) /ui', ' $1~', $content);
+$content = preg_replace('/ (in|for|at|on|from|of|to|as|by|I|\d{1,3}) /ui', ' $1~', $content);
+$content = preg_replace_callback("/(\\\\begin{(?:minted|lstlisting)}.*?)~(.*?\\\\end{(?:minted|lstlisting)})/uis", function ($matches) {
+	return strtr($matches[0], '~', ' ');
+}, $content);
 
 echo $content;
