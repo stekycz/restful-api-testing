@@ -39,7 +39,7 @@ The first possibility is to implement everything by myself. However it is very c
 
 #### Custom code using libraries
 
-Instead of writing everything by myself it could be easier to use exists libraries for some functionality. There is a library for loading API Blueprint[[36](../README.md/#APIBlueprint)] files, another library for sending and receiving data using HTTP[[14](../README.md/#HTTP)] and already mentioned Gavel[[17](../README.md/#Gavel) for assertions. However I still would need to implement some output reporters and invent some way how to write a test case.
+Instead of writing everything by myself it could be easier to use exists libraries for some functionality. There is a library for loading API Blueprint[[36](../README.md/#APIBlueprint)] files, another library for sending and receiving data using HTTP[[14](../README.md/#HTTP)] and already mentioned Gavel[[17](../README.md/#Gavel)] for assertions. However I still would need to implement some output reporters and invent some way how to write a test case.
 
 There could exist some library for testing reporter output formatters which I could use. However what style of writing tests I should invent? The simpliest way is similar to REST-assured[[8](../README.md/#rest-assured)] or frisby.js[[10](../README.md/#frisby)]. I mean writing some code using public API of the testing tool. It is good way how to write tests because it would be comfortable for programmers. However I want to create easier testing tool. I could write some custom syntax for this purpose but it is still too complicated to implement the testing tool. Custom syntax for this purpose would be a separate thesis in my opinion.
 
@@ -252,7 +252,7 @@ handleRequest = (res) ->
     callback()
 ```
 
-The last method in the `World` is `validate`. It uses Gavel[[17](../README.md/#Gavel) for validation of the last real response. There is no magic instead of processing possible errors for the output. The code follows.
+The last method in the `World` is `validate`. It uses Gavel[[17](../README.md/#Gavel)] for validation of the last real response. There is no magic instead of processing possible errors for the output. The code follows.
 
 ```coffeescript
 validate: (callback, errorCallback) ->
@@ -275,7 +275,7 @@ validate: (callback, errorCallback) ->
         return errorCallback message
 ```
 
-The only tricky thing is that method `isValid` does not return details about validity error. The error argument in the callback of `isValid` method is used for other then validation errors. So there is a simple logic, for case the test does not pass, which calls method `validate` on Gavel[[17](../README.md/#Gavel) object.
+The only tricky thing is that method `isValid` does not return details about validity error. The error argument in the callback of `isValid` method is used for other then validation errors. So there is a simple logic, for case the test does not pass, which calls method `validate` on Gavel[[17](../README.md/#Gavel)] object.
 
 Now is the time to describe some _step definitions_. However I would like to say that there exists 3 types of Cucumber[[6](../README.md/#Cucumber)] _step definitions_. They are named `Given`, `When` and `Then`. How their names suggests they are used for specific purposes.
 
@@ -401,7 +401,7 @@ The first class is `RequestBuilder`. It is simple encapsulating class around req
 
 The second class is `RequestProcessor`. However there is nothing to say because it is just the same code as it was in the `World`. However it can be tested separately now.
 
-The last class is `ResponseValidator` which uses Gavel[[17](../README.md/#Gavel) for validation. However it is also the same code from the `World` given aside.
+The last class is `ResponseValidator` which uses Gavel[[17](../README.md/#Gavel)] for validation. However it is also the same code from the `World` given aside.
 
 The next logic I have set aside is translation of content type shortcuts to values for HTTP[[14](../README.md/#HTTP)] headers. Currently there is only JSON and XML. However there is no reason why there should not be any other. The code is also very simple.
 

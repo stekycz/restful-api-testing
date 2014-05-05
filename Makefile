@@ -10,10 +10,13 @@ OUTPUT=$(FILENAME).pdf
 all: $(SOURCES) $(OUTPUT) clean
 
 $(OUTPUT): $(OBJECTS)
-	for i in 1 2 3; do pdflatex -shell-escape $(INPUT); done
+	pdflatex -shell-escape $(INPUT)
+	bibtex $(FILENAME)
+	pdflatex -shell-escape $(INPUT)
+	pdflatex -shell-escape $(INPUT)
 
 %.tex: %.md
-	$(CC) $(CFLAGS) $< | ./bin/syntax-highlight | ./bin/fix-czech-chars | ./bin/fix-fixed-space > $@
+	$(CC) $(CFLAGS) $< | ./bin/syntax-highlight | ./bin/fix-fixed-space | ./bin/references-to-tex | ./bin/fix-czech-chars > $@
 
 clean:
 	mv $(INPUT) $(FILENAME)_tmp.tex
