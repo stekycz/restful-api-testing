@@ -1,6 +1,6 @@
 CC=multimarkdown
 CFLAGS=-t latex
-SOURCES=$(wildcard chapters/*.md abstra*.md)
+SOURCES=$(wildcard chapters/*.md abstra*.md acknowledgements.md)
 OBJECTS=$(SOURCES:.md=.tex)
 
 FILENAME=DP_Stekl_Martin_2014
