@@ -2,6 +2,7 @@
 
 - [Description](#description)
 - [Requirements](#requirements)
+- [Acknowledgements](acknowledgements.md)
 - [Abstract EN](abstract-en.md)
 - [Abstract CS](abstract-cs.md)
 - [Table of Content](#table-of-content)
