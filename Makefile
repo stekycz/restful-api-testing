@@ -21,6 +21,6 @@ $(OUTPUT): $(OBJECTS)
 clean:
 	mv $(INPUT) $(FILENAME)_tmp.tex
 	mv $(FILENAME).pdf $(FILENAME)_tmp.pdf
-	rm -rf $(FILENAME).* chapters/*.tex abstract-*.tex
+	rm -rf $(FILENAME).* chapters/*.tex abstract-*.tex acknowledgements.tex
 	mv $(FILENAME)_tmp.tex $(INPUT)
 	mv $(FILENAME)_tmp.pdf $(FILENAME).pdf
