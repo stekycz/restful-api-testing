@@ -1,0 +1,11 @@
+#!/usr/local/bin/php
+<?php
+
+$content = '';
+while($f = fgets(STDIN)){
+	$content .= $f;
+}
+
+$content = preg_replace('/\.png/ui', '.pdf', $content);
+
+echo $content;

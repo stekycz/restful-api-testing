@@ -16,7 +16,7 @@ $(OUTPUT): $(OBJECTS)
 	pdflatex -shell-escape $(INPUT)
 
 %.tex: %.md
-	$(CC) $(CFLAGS) $< | ./bin/syntax-highlight | ./bin/fix-fixed-space | ./bin/references-to-tex | ./bin/fix-czech-chars > $@
+	$(CC) $(CFLAGS) $< | ./bin/syntax-highlight | ./bin/fix-fixed-space | ./bin/img-png-to-pdf | ./bin/references-to-tex | ./bin/fix-czech-chars > $@
 
 clean:
 	mv $(INPUT) $(FILENAME)_tmp.tex
