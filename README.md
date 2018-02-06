@@ -106,7 +106,7 @@ Choose some of the proposed modifications and implement them. Propose implemente
 - [23]<a name="Buster"></a>: *Buster.js*. (http://docs.busterjs.org/en/v0.7.x)
 - [24]<a name="Jasmine"></a>: *Jasmine*. (http://jasmine.github.io)
 - [25]<a name="Chai"></a>: *Chai*. (http://chaijs.com)
-- [26]<a name="Mocha"></a>: *Mocha*. (http://visionmedia.github.io/mocha)
+- [26]<a name="Mocha"></a>: *Mocha*. (http://mochajs.org/)
 - [27]<a name="Gherkin"></a>: *Gherkin*. (https://github.com/cucumber/gherkin)
 - [28]<a name="Protagonist"></a>: *Protagonist*. (https://github.com/apiaryio/protagonist)
 - [29]<a name="Node"></a>: *Node.js*. (http://nodejs.org)
